@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PettyCashApp", "PettyCashApp\PettyCashApp.csproj", "{7504AD98-4084-4C3E-9FA3-CF76CE57D011}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PettyCash_C", "PettyCash_C\PettyCash_C.csproj", "{2ED13973-8ED5-4387-851B-53AD051673A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PettyCash_M", "PettyCash_M\PettyCash_M.csproj", "{FF8E2879-8682-4618-9FA3-2F045FE73EA7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7504AD98-4084-4C3E-9FA3-CF76CE57D011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7504AD98-4084-4C3E-9FA3-CF76CE57D011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7504AD98-4084-4C3E-9FA3-CF76CE57D011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7504AD98-4084-4C3E-9FA3-CF76CE57D011}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED13973-8ED5-4387-851B-53AD051673A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED13973-8ED5-4387-851B-53AD051673A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED13973-8ED5-4387-851B-53AD051673A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED13973-8ED5-4387-851B-53AD051673A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8E2879-8682-4618-9FA3-2F045FE73EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8E2879-8682-4618-9FA3-2F045FE73EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8E2879-8682-4618-9FA3-2F045FE73EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8E2879-8682-4618-9FA3-2F045FE73EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,518 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="PettyCashApp.user.user" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+    <meta name="author" content="Coderthemes" />
+
+    <link rel="shortcut icon" href="../assets/images/favicon.ico" />
+
+    <title>PettyCashApp</title>
+
+    <script type="text/javascript">
+        function DisableBack() {
+            window.history.forward();
+        }
+        DisableBack();
+        window.onload = DisableBack;
+        window.onpageshow = function (evt) {
+            if (evt.persisted) DisableBack();
+        }
+        window.onunload = function () { void (0); }
+    </script>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap Datepicker -->
+    <link href="../assets/plugins/bootstrap-datepicker/new/bootstrap-datepicker3.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/bootstrap-datepicker/new/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" />
+    <!-- Sweetalert -->
+    <link href="../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="../assets/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Circliful -->
+    <link href="assets/plugins/circliful/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="assets/js/modernizr.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <a href="index.html" class="logo"><span>PettyCash<span>App</span></span></a>
+                </div>
+                <!-- End Logo container-->
+
+
+                <div class="menu-extras">
+
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li>
+                            <!-- Notification -->
+                            <div class="notification-box">
+                                <ul class="list-inline m-b-0">
+                                    <li>
+                                        <%--                                        <a href="javascript:void(0);" class="right-bar-toggle">
+                                            <i class="zmdi zmdi-notifications-none"></i>
+                                        </a>
+                                        <div class="noti-dot">
+                                            <span class="dot"></span>
+                                            <span class="pulse"></span>
+                                        </div>--%>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Notification bar -->
+                        </li>
+
+                        <li class="dropdown user-box">
+                            <a href="#" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                                <asp:Label ID="lbluname" runat="server"></asp:Label>
+                                <div class="user-status online"><i class="zmdi zmdi-dot-circle"></i></div>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="../Logout.aspx"><i class="ti-power-off m-r-5"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-item">
+                        <!-- Mobile menu toggle-->
+                        <a class="navbar-toggle">
+                            <div class="lines">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </a>
+                        <!-- End mobile menu toggle-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="navbar-custom">
+            <div class="container">
+                <div id="navigation">
+                    <!-- Navigation Menu-->
+                    <ul class="navigation-menu">
+                        <li id="dash" runat="server">
+                            <a href="dash.aspx"><i class="zmdi zmdi-view-dashboard"></i><span>Dashboard </span></a>
+                        </li>
+
+                        <li id="design" class="has-submenu" runat="server">
+                            <a href="#"><i class="zmdi zmdi-collection-item"></i><span>Design </span></a>
+                            <ul class="submenu">
+                                <li id="design1" runat="server"><a href="Template.aspx">Template</a></li>
+                                <li id="design2" runat="server"><a href="JournalList.aspx">Journal</a></li>
+                            </ul>
+                        </li>
+
+                        <li id="report" class="has-submenu" runat="server">
+                            <a href="#"><i class="zmdi zmdi-collection-item"></i><span>Reports </span></a>
+                            <ul class="submenu">
+                                <li id="report1" runat="server"><a href="Report1.aspx">Ongoing Report</a></li>
+                                <li id="report2" runat="server"><a href="Report2.aspx">Previous Report(s)</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- End navigation menu  -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Navigation Bar-->
+
+
+    <div class="wrapper">
+        <div class="container">
+
+            <%--            <form id="form1" runat="server">
+                <div>--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <%--                </div>
+            </form>--%>
+
+            <!-- Footer -->
+            <footer class="footer text-right">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p class="text-muted">2016 © <a href="http://www.summersoft.in" target="_blank" class="text-primary m-l-5"><b>summersoft</b></a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+
+        </div>
+        <!-- end container -->
+    </div>
+
+
+
+    <!-- jQuery  -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/detect.js"></script>
+    <script src="../assets/js/fastclick.js"></script>
+    <script src="../assets/js/jquery.slimscroll.js"></script>
+    <script src="../assets/js/jquery.blockUI.js"></script>
+    <script src="../assets/js/waves.js"></script>
+    <script src="../assets/js/wow.min.js"></script>
+    <script src="../assets/js/jquery.nicescroll.js"></script>
+    <script src="../assets/js/jquery.scrollTo.min.js"></script>
+
+
+
+
+    <!-- App js -->
+    <script src="../assets/js/jquery.core.js"></script>
+    <script src="../assets/js/jquery.app.js"></script>
+
+    <!-- Validate js -->
+    <script src="../assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="../assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="../assets/js/validate_js/custom_add_journal_entry.js"></script>
+    <script src="../assets/js/validate_js/custom_start_journal.js"></script>
+    <script src="../assets/js/validate_js/custom_edit_journal.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="../assets/plugins/bootstrap-datepicker/new/bootstrap-datepicker.min.js"></script>
+
+    <!-- Circliful -->
+    <script src="assets/plugins/circliful/jquery.circliful.min.js"></script>
+
+    <!-- Clone js coded by sebin-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#fup_new').attr('checked', false); // Unchecks it
+            // Start: From Here
+            $('#addToTable').click(function () {
+                $copy = $('.cls_deposit.active');
+                $length = $('.cls_deposit').length;
+                $append = $('.area_insert');
+                $copy.find('.row_remove').removeClass('hidden');
+                $cloned = $copy.clone();
+                $cloned.find('input:text').each(function () {
+                    $(this).val('');
+                });
+                $cloned.find('.item_name').removeAttr("id").attr("id", "ContentPlaceHolder1_item_name" + ($length + 1));
+                $cloned.find('.item_price').removeAttr("id").attr("id", "ContentPlaceHolder1_item_price" + ($length + 1));
+                $cloned.find('.item_desc').removeAttr("id").attr("id", "ContentPlaceHolder1_item_desc" + ($length + 1));
+                $cloned.find('textarea').val('');
+                $copy.removeClass('active');
+                $cloned.prependTo($append);
+
+            });
+            $(document).on("click", ".row_remove", function () {
+                $length = $('.cls_deposit').length;
+                if (confirm("Do u wanna Delete?")) {
+                    $(this).parent().parent().remove();
+                    if ($length == 2) {
+                        $('.cls_deposit').addClass('active');
+                        $('.row_remove').addClass('hidden');
+                    }
+
+                }
+            });
+            $('.cls_type').change(function () {
+                if ($(this).val() == 1) {  // withdraw
+                    $('#wrk_div_withdraw').removeClass('hidden');
+                    $('#wrk_div_deposit').addClass('hidden');
+                    $('#fup_new').attr('checked', false); // Unchecks it
+                    $('#v_up').addClass('hidden');
+                    $("#bfp").val("");
+                    $("#vfp").val("");
+
+                }
+                if ($(this).val() == 2) {  // deposit
+                    $('#wrk_div_withdraw').addClass('hidden');
+                    $('#wrk_div_deposit').removeClass('hidden');
+                    $('#fup_new').attr('checked', false); // Unchecks it
+                    $('#v_up').addClass('hidden');
+                    $("#bfp").val("");
+                    $("#vfp").val("");
+
+
+                }
+                if ($(this).val() == '') { //--select--
+                    $('#wrk_div_withdraw').addClass('hidden');
+                    $('#wrk_div_deposit').addClass('hidden');
+                    $('#fup_new').attr('checked', false); // Unchecks it
+                    $('#v_up').addClass('hidden');
+                    $("#bfp").val("");
+                    $("#vfp").val("");
+
+                }
+
+            });
+            //End :Here
+
+            //
+
+            $("#fup_new").click(function () {
+                ($(this).prop("checked")) ? $("#v_up").removeClass("hidden") : $("#v_up").addClass("hidden");
+            });
+
+            //Bill Upload Edit
+            $("#bill_new").click(function () {
+                $('#bill_upload').val("");
+                ($(this).prop("checked")) ? $("#bill_up").removeClass("hidden") : $("#bill_up").addClass("hidden");
+            });
+
+            //Voucher Upload Edit
+            $("#vhr_new").click(function () {
+                $('#vhr_upload').val("");
+                ($(this).prop("checked")) ? $("#vhr_up").removeClass("hidden") : $("#vhr_up").addClass("hidden");
+            });
+            //
+            datepick();
+            trends_vals();
+            journaldate();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        function jvali() {
+            var chk;
+            var dim;
+            dim = $('.cls_type option:selected').val();
+            //alert($('.cls_type option:selected').val());
+            if (dim == 1) {
+                chk = $('.cls_deposit').length;
+                //setting the value for hiddenfield
+                $('#HiddenField1').val(chk);
+            }
+            else if (dim == 2) {
+                chk = 0;
+            }
+            else {
+                chk = 0;
+            }
+            addjinit.init();
+            //alert(chk);
+        }
+    </script>
+
+    <!-- Validation for Edit Journal for Withdraw and Deposit-->
+    <script type="text/javascript">
+        function edit_vali() {
+            // alert('here');
+            vali_edit.init();
+        }
+    </script>
+
+
+    <script type="text/javascript">
+
+        function datepick() {
+            var date = new Date();
+            var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            $('#txtsjdate').datepicker({
+                format: "dd/mm/yyyy",
+                startDate: "today",
+                endDate: "today",
+                daysOfWeekDisabled: "0,6", // to disable weekends 0 - sunday, 6 - saturday
+                todayHighlight: true, // to highlight today
+                orientation: "bottom",
+                autoclose: true
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+        function startj_vali() {
+            startjinit.init();
+        }
+    </script>
+
+    <script type="text/javascript">
+        function trends_vals() {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data: "{}",
+                url: "dash.aspx/fetchexpenses",
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.d.length; i++) {
+                        if (data.d[i].Type == "current_balance") {
+                            $('#cbv').text(data.d[i].Amount);
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                                $('#cb').removeClass();
+                                $('#cbi').removeClass();
+                                $('#cb').addClass('badge badge-danger pull-left m-t-20');
+                                $('#cbi').addClass('zmdi zmdi-trending-down');
+                                $('#cbh').text('Insufficiant');
+                            }
+                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                                $('#cb').removeClass();
+                                $('#cbi').removeClass();
+                                $('#cb').addClass('badge badge-warning pull-left m-t-20');
+                                $('#cbi').addClass('zmdi zmdi-trending-flat');
+                                $('#cbh').text('Budget');
+                            }
+                            else if (data.d[i].Amount >= 2501.00) {
+                                $('#cb').removeClass();
+                                $('#cbi').removeClass();
+                                $('#cb').addClass('badge badge-success pull-left m-t-20');
+                                $('#cbi').addClass('zmdi zmdi-trending-up');
+                                $('#cbh').text('Sufficiant');
+                            }
+                            else {
+                                $('#cb').removeClass();
+                                $('#cbi').removeClass();
+                                $('#cb').addClass('badge badge-danger pull-left m-t-20');
+                                $('#cbi').addClass('zmdi zmdi-trending-down');
+                                $('#cbh').text('Insufficiant');
+                            }
+                        }
+                        else if (data.d[i].Type == "current_expense") {
+                            $('#cev').text(data.d[i].Amount);
+                            //$('#ceh').text(data.d[i].Percent);
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                                $('#ce').removeClass();
+                                $('#cei').removeClass();
+                                $('#ce').addClass('badge badge-success pull-left m-t-20');
+                                $('#cei').addClass('zmdi zmdi-trending-down');
+                                $('#ceh').text('Low');
+                            }
+                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                                $('#ce').removeClass();
+                                $('#cei').removeClass();
+                                $('#ce').addClass('badge badge-warning pull-left m-t-20');
+                                $('#cei').addClass('zmdi zmdi-trending-flat');
+                                $('#ceh').text('Budget');
+                            }
+                            else {
+                                $('#ce').removeClass();
+                                $('#cei').removeClass();
+                                $('#ce').addClass('badge badge-danger pull-left m-t-20');
+                                $('#cei').addClass('zmdi zmdi-trending-up');
+                                $('#ceh').text('High');
+                            }
+
+                        }
+                        else if (data.d[i].Type == "prev_expense") {
+                            $('#pev').text(data.d[i].Amount);
+                            //$('#peh').text(data.d[i].Percent);
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                                $('#pe').removeClass();
+                                $('#pei').removeClass();
+                                $('#pe').addClass('badge badge-success pull-left m-t-20');
+                                $('#pei').addClass('zmdi zmdi-trending-down');
+                                $('#peh').text('Low');
+                            }
+                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                                $('#pe').removeClass();
+                                $('#pei').removeClass();
+                                $('#pe').addClass('badge badge-warning pull-left m-t-20');
+                                $('#pei').addClass('zmdi zmdi-trending-flat');
+                                $('#peh').text('Budget');
+                            }
+                            else {
+                                $('#pe').removeClass();
+                                $('#pei').removeClass();
+                                $('#pe').addClass('badge badge-danger pull-left m-t-20');
+                                $('#pei').addClass('zmdi zmdi-trending-up');
+                                $('#peh').text('High');
+                            }
+                        }
+                        else {
+                        }
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+        setInterval(trends_vals, 10000); // 10 seconds
+    </script>
+
+    <script type="text/javascript">
+        function journaldate() {
+            var date = new Date();
+            //alert(date);
+            ///var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+            //var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+            var lastDay;
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                data: "{}",
+                url: "Journal.aspx/fetchsdatejornal",
+                dataType: "json",
+                success: function (data) {
+                    for (var i = 0; i < data.d.length; i++) {
+                        //alert(data.d[i].odate);
+                        var fday = data.d[i].odate;
+                        var initial = fday.split(/\//);
+                        //alert(initial[0]);
+                        //alert(initial[1]);
+                        //alert(initial[2]);
+                        if (initial[1] == "04" || initial[1] == "06" || initial[1] == "09" || initial[1] == "11") {
+                            lastDay = "30/" + initial[1] + "/" + initial[2];
+                            //alert(lastDay);
+                        }
+                        else if (initial[1] == "01" || initial[1] == "03" || initial[1] == "05" || initial[1] == "07" || initial[1] == "08" || initial[1] == "10" || initial[1] == "12") {
+
+                            lastDay = "31/" + initial[1] + "/" + initial[2];
+                        }
+                        else {
+                            lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                        }
+                    }
+                    $('#txtdate').datepicker({
+                        format: "dd/mm/yyyy",
+                        startDate: fday,
+                        endDate: lastDay,
+                        daysOfWeekDisabled: "0,6", // to disable weekends 0 - sunday, 6 - saturday
+                        todayHighlight: true, // to highlight today
+                        orientation: "bottom",
+                        autoclose: true
+                    });
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                }
+            });
+        }
+    </script>
+    <script>
+        function modal() {
+            $('#email-delay').modal({
+                show: true,
+                keyboard: false,
+                backdrop: 'static'
+            });
+        }
+    </script>
+
+</body>
+</html>
