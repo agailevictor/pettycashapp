@@ -71,7 +71,9 @@ namespace PettyCashApp.user
             else
             {
                 grd_ogrpt.DataSource = null;
-                grd_ogrpt.DataBind();;
+                grd_ogrpt.DataBind();
+                btn_exl.Visible = false;
+                btn_pdf.Visible = false;
             }
         }
 

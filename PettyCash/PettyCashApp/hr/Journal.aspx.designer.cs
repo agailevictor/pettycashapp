@@ -11,23 +11,5 @@ namespace PettyCashApp.hr {
     
     
     public partial class Journal {
-        
-        /// <summary>
-        /// form_journal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form_journal;
-        
-        /// <summary>
-        /// ddl_assign_user control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_assign_user;
     }
 }

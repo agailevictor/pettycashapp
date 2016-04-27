@@ -123,10 +123,10 @@
                         </li>
 
                         <li id="report" class="has-submenu" runat="server">
-                            <a href="#"><i class="fa-file"></i><span>Reports </span></a>
+                            <a href="#"><i class="zmdi zmdi-file"></i><span>Reports </span></a>
                             <ul class="submenu">
-                                        <li id="report1" runat="server"><a href="Report1.aspx">Ongoing Report</a></li>
-                                        <li id="report2" runat="server"><a href="Report2.aspx">Previous Report(s)</a></li>
+                                <li id="report1" runat="server"><a href="Report1.aspx">Ongoing Report</a></li>
+                                <li id="report2" runat="server"><a href="Report2.aspx">Previous Report(s)</a></li>
                             </ul>
                         </li>
 

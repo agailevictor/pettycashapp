@@ -26,7 +26,7 @@ namespace PettyCashApp.hr
             {
                 if (Session["is_login"].ToString() == "t")
                 {
-                    assignee_user();
+                    
 
                 }
                 else
@@ -39,12 +39,6 @@ namespace PettyCashApp.hr
                 Response.Redirect("~/Login.aspx");
             }
         }
-        public void assignee_user()
-        {
-            DataTable dt = bus.assignee_user();
-            ddl_assign_user.DataSource = dt;
-            ddl_assign_user.DataBind();
-            ddl_assign_user.Items.Insert(0, new ListItem("-----SELECT-----", ""));
-        }
+
     }
 }

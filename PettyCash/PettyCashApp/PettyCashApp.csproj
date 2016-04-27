@@ -68,6 +68,7 @@
     <Content Include="assets\css\icons.css" />
     <Content Include="assets\css\menu.css" />
     <Content Include="assets\css\pages.css" />
+    <Content Include="assets\css\pagination.css" />
     <Content Include="assets\css\responsive.css" />
     <Content Include="assets\fonts\fontawesome-webfont3295.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />

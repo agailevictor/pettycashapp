@@ -40,7 +40,9 @@
     <script src="../assets/plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Circliful -->
-    <link href="assets/plugins/circliful/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/circliful/jquery.circliful.css" rel="stylesheet" type="text/css" />
+    <!-- Pagination -->
+    <link href="../assets/css/pagination.css" rel="stylesheet" />
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -131,7 +133,7 @@
                         </li>
 
                         <li id="report" class="has-submenu" runat="server">
-                            <a href="#"><i class="fa-file"></i><span>Reports </span></a>
+                            <a href="#"><i class="zmdi zmdi-file"></i><span>Reports </span></a>
                             <ul class="submenu">
                                 <li id="report1" runat="server"><a href="Report1.aspx">Ongoing Report</a></li>
                                 <li id="report2" runat="server"><a href="Report2.aspx">Previous Report(s)</a></li>
@@ -204,7 +206,7 @@
     <script src="../assets/plugins/bootstrap-datepicker/new/bootstrap-datepicker.min.js"></script>
 
     <!-- Circliful -->
-    <script src="assets/plugins/circliful/jquery.circliful.min.js"></script>
+    <script src="../assets/plugins/circliful/jquery.circliful.min.js"></script>
 
     <!-- Clone js coded by sebin-->
     <script type="text/javascript">
