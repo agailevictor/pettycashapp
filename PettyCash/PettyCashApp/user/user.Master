@@ -494,7 +494,7 @@
                     $('#txtdate').datepicker({
                         format: "dd/mm/yyyy",
                         startDate: fday,
-                        endDate: lastDay,
+                        endDate: "today",
                         daysOfWeekDisabled: "0,6", // to disable weekends 0 - sunday, 6 - saturday
                         todayHighlight: true, // to highlight today
                         orientation: "bottom",

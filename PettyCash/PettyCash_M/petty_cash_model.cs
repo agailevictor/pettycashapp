@@ -357,5 +357,44 @@ namespace PettyCash_M
                 db.disconnect_pettycash();
             }
         }
+
+        public DataTable fill_startdate_ddl()
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_rpt_pmid";
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
+        public DataTable rpt_htry_Click(int idno)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_journal_details";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idno", idno);
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
     }
 }

@@ -95,5 +95,15 @@ namespace PettyCash_C
         {
             return data.vhr_path(id);
         }
+
+        public DataTable fill_startdate_ddl()
+        {
+            return data.fill_startdate_ddl();
+        }
+
+        public DataTable rpt_htry_Click()
+        {
+            return data.rpt_htry_Click(pmid);
+        }
     }
 }

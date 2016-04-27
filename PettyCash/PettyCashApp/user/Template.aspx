@@ -58,7 +58,7 @@
                     <div class="row">
 
                         <div class="table-responsive">
-                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False">
+                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="grid_ongoing_details_PageIndexChanging" PageSize="4">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -69,6 +69,7 @@
                                     <asp:BoundField HeaderText="Opened By" DataField="opend_by" />
                                     <asp:BoundField HeaderText="Status" DataField="status" />
                                 </Columns>
+                                <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>
 

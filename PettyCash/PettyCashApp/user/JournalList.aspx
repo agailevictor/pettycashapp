@@ -60,7 +60,7 @@
                     <div class="row">
 
                         <div class="table-responsive">
-                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" DataKeyNames="id">
+                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True" OnPageIndexChanging="grid_ongoing_details_PageIndexChanging" PageSize="4">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -103,6 +103,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>
 

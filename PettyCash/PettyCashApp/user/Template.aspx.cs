@@ -164,6 +164,12 @@ namespace PettyCashApp.user
             return flg;
         }
 
+        protected void grid_ongoing_details_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grid_ongoing_details.PageIndex = e.NewPageIndex;
+            filllogs();
+        }
+
 
     }
 }

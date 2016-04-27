@@ -132,7 +132,10 @@ namespace PettyCashApp.user
             }
         }
 
-
-
+        protected void grd_ogrpt_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grd_ogrpt.PageIndex = e.NewPageIndex;
+            fill_ongoing();
+        }
     }
 }

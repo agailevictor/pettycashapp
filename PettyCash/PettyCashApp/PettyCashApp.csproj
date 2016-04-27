@@ -520,6 +520,12 @@
     <Compile Include="user\Report2.aspx.designer.cs">
       <DependentUpon>Report2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="user\rpt_history.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt_history.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="user\start_journal.aspx.cs">
       <DependentUpon>start_journal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -613,6 +619,10 @@
     <EmbeddedResource Include="user\MonthlyReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MonthlyReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user\rpt_history.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt_history.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
