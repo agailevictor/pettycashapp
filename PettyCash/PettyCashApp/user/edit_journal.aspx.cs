@@ -15,6 +15,7 @@ namespace PettyCashApp.user
         petty_cash_Con bus = new petty_cash_Con();
         string ty;
         int chk = 1;
+        double amt_edit;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -59,7 +60,7 @@ namespace PettyCashApp.user
         {
 
             bus.id = int.Parse(Session["id"].ToString());
-            string type = Session["ty"].ToString();
+            string type = Session["ty"].ToString();            
             DataTable dt = bus.edit_journal();
             if (dt.Rows.Count > 0)
             {
@@ -83,6 +84,7 @@ namespace PettyCashApp.user
         {
             int res;
             ty = Session["ty"].ToString();
+            amt_edit = double.Parse(Session["amt_edit"].ToString());
 
             if (ty == "Deposit")
             {
@@ -116,6 +118,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = "";
                                     bus.amt = double.Parse(txtamount.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
                                     bus.voucher_upload = filename_vir_vhr;
                                     bus.description = "";
@@ -180,6 +183,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = "";
                                     bus.amt = double.Parse(txtamount.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
                                     bus.voucher_upload = "";
                                     bus.description = "";
@@ -243,6 +247,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = "";
                                     bus.amt = double.Parse(txtamount.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = "";// check here later
                                     bus.voucher_upload = filename_vir_vhr;
                                     bus.description = "";
@@ -294,6 +299,7 @@ namespace PettyCashApp.user
                         bus.rno = txtrcpt.Text;
                         bus.item = "";
                         bus.amt = double.Parse(txtamount.Text);
+                        bus.amt_edit = amt_edit;
                         bus.bill_upload = "";
                         bus.voucher_upload = "";
                         bus.description = "";
@@ -346,6 +352,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
                                     bus.amt = double.Parse(price1.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
                                     bus.voucher_upload = filename_vir_vhr;
                                     bus.description = desc1.Text;
@@ -410,6 +417,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
                                     bus.amt = double.Parse(price1.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
                                     bus.voucher_upload = "";
                                     bus.description = desc1.Text;
@@ -473,6 +481,7 @@ namespace PettyCashApp.user
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
                                     bus.amt = double.Parse(price1.Text);
+                                    bus.amt_edit = amt_edit;
                                     bus.bill_upload = "";
                                     bus.voucher_upload = filename_vir_vhr;
                                     bus.description = desc1.Text;
@@ -524,6 +533,7 @@ namespace PettyCashApp.user
                         bus.rno = txtrcpt.Text;
                         bus.item = item_name1.Text;
                         bus.amt = double.Parse(price1.Text);
+                        bus.amt_edit = amt_edit;
                         bus.bill_upload = "";
                         bus.voucher_upload = "";
                         bus.description = desc1.Text;
