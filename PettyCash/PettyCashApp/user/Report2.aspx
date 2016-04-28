@@ -23,7 +23,7 @@
             <div class="btn-group pull-right m-t-15">
                 <div id="clock-1"></div>
             </div>
-            <h4 class="page-title">Report 2</h4>
+            <h4 class="page-title">Previous Report(s)</h4>
         </div>
     </div>
 
@@ -33,7 +33,7 @@
                 <div class="row">
                     <form class="form-horizontal" runat="server" id="startj_form">
                         <div class="form-group">
-                            <label for="lbluser" class="col-sm-4 control-label">Select Date</label>
+                            <label for="lbluser" class="col-sm-4 control-label">Select Date*</label>
                             <div class="col-sm-7">
                                 <asp:DropDownList ID="start_date" runat="server" CssClass="form-control cust" DataTextField="odate" DataValueField="pcmid"></asp:DropDownList>
                             </div>

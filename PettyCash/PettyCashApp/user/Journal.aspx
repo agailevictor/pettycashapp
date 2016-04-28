@@ -103,7 +103,7 @@
                 <h4 class="header-title m-t-0 m-b-30">Add New Entry</h4>
                 <form id="journal_entry" runat="server">
                     <div class="form-group">
-                        <label for="date">Date *</label>
+                        <label for="date">Date*</label>
                         <asp:TextBox ID="txtdate" runat="server" placeholder="Enter Date" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                     </div>
                     <div class="form-group">
@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="bfp">Bill Upload</label>
+                                <label for="bfp">Bill Upload*</label>
                                 <asp:FileUpload ID="bfp" runat="server" ClientIDMode="Static" />
                                  <small>Allowed File Type: PDF</small>
                             </div>
@@ -140,7 +140,7 @@
                     <div id="v_up" class="row hidden">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="vfp">Voucher Upload</label>
+                                <label for="vfp">Voucher Upload*</label>
                                 <asp:FileUpload ID="vfp" runat="server" ClientIDMode="Static"/>
                                 <small>Allowed File Type: PDF</small>
                             </div>
