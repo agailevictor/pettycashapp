@@ -202,6 +202,7 @@
     <script src="../assets/js/validate_js/custom_add_journal_entry.js"></script>
     <script src="../assets/js/validate_js/custom_start_journal.js"></script>
     <script src="../assets/js/validate_js/custom_edit_journal.js"></script>
+    <script src="../assets/js/validate_js/custom_report_vali.js"></script>
     <!-- Bootstrap Datepicker -->
     <script src="../assets/plugins/bootstrap-datepicker/new/bootstrap-datepicker.min.js"></script>
 
@@ -324,12 +325,20 @@
 
     <!-- Validation for Edit Journal for Withdraw and Deposit-->
     <script type="text/javascript">
-        function edit_vali() {
+        function edit_vali()
+        {
             // alert('here');
             vali_edit.init();
         }
     </script>
 
+    <!-- Validation for report-->
+    <script type="text/javascript">
+        function rpt_vali()
+        {
+            vali_rpt.init();
+        }
+    </script>
 
     <script type="text/javascript">
 

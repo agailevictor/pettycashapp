@@ -129,6 +129,7 @@
     <Content Include="assets\js\validate_js\custom_edit_journal.js" />
     <Content Include="assets\js\validate_js\custom_hr_assign_user.js" />
     <Content Include="assets\js\validate_js\custom_login.js" />
+    <Content Include="assets\js\validate_js\custom_report_vali.js" />
     <Content Include="assets\js\validate_js\custom_start_journal.js" />
     <Content Include="assets\js\waves.js" />
     <Content Include="assets\js\wow.min.js" />

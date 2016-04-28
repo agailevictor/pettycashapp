@@ -40,7 +40,14 @@ namespace PettyCashApp.user
         //Get Report Button
         protected void rpt_htry_Click(object sender, EventArgs e)
         {
-            rpt_grid_fill();
+            if (start_date.SelectedIndex != 0)
+            {
+                rpt_grid_fill();
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_ddl_empty();", true);
+            }
         }
         //Get Pdf Report
         protected void btn_pdf_Click(object sender, EventArgs e)
