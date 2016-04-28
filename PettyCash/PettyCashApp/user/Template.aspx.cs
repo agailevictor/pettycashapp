@@ -95,7 +95,7 @@ namespace PettyCashApp.user
                 
                 // generate report and send email the report as attachment
                 
-                bool check = SendWebMail("agaile@hummingsoft.com.my", "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
+                bool check = SendWebMail("harishankar@hummingsoft.com.my", "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
 
                 if (check == true)
                 {
