@@ -88,11 +88,11 @@
             <div class="card-box">
                 <form id="journal_edit" runat="server">
                     <div class="form-group">
-                        <label for="date">Date *</label>
+                        <label for="date">Date*</label>
                         <asp:TextBox ID="txtdate" runat="server" placeholder="Enter Date" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label for="receiptno">Receipt No *</label>
+                        <label for="receiptno">Receipt No*</label>
                         <asp:TextBox ID="txtrcpt" runat="server" placeholder="Enter Receipt No" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                     </div>
                     <div class="form-group">
@@ -100,19 +100,19 @@
                         <asp:Label ID="type_lbl" runat="server" Text="" CssClass="form-control"></asp:Label>
                     </div>
                     <div id="iname" class="form-group" runat="server">
-                        <label for="item_name">Item Name *</label>
+                        <label for="item_name">Item Name*</label>
                         <asp:TextBox ID="item_name1" placeholder="Enter item" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div id="price" class="form-group" runat="server">
-                        <label for="price">Price *</label>
+                        <label for="price">Price*</label>
                         <asp:TextBox ID="price1" runat="server" placeholder="Enter price" CssClass="form-control"></asp:TextBox>
                     </div>
                     <div id="amnt" class="form-group" runat="server">
-                        <label for="amount">Amount *</label>
+                        <label for="amount">Amount*</label>
                         <asp:TextBox ID="txtamount" placeholder="Enter amount" CssClass="form-control" runat="server"></asp:TextBox>
                     </div>
                     <div id="desc" class="form-group" runat="server">
-                        <label for="desc">Description (Optional)</label>
+                        <label for="desc">Description</label>
                         <asp:TextBox ID="desc1" runat="server" CssClass="form-control item_desc" placeholder="Enter Description" TextMode="MultiLine"></asp:TextBox>
                     </div>
                     
@@ -127,7 +127,7 @@
                     <div id="bill_up" class="row hidden">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="bill_up">Bill Upload</label>
+                                <label for="bill_up">Bill Upload*</label>
                                 <asp:FileUpload ID="bill_upload" runat="server" ClientIDMode="Static"/>
                                 <small>Allowed File Type: PDF</small>
                             </div>
@@ -144,7 +144,7 @@
                     <div id="vhr_up" class="row hidden">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label for="vfp">Voucher Upload</label>
+                                <label for="vfp">Voucher Upload*</label>
                                 <asp:FileUpload ID="vhr_upload" runat="server" ClientIDMode="Static"/>
                                 <small>Allowed File Type: PDF</small>
                             </div>

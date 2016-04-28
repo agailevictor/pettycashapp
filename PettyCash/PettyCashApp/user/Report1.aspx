@@ -40,8 +40,8 @@
                             </asp:GridView>
                         </div>
                         <div class="arrange pull-right">
-                            <asp:Button ID="btn_exl" CssClass="btn btn-primary waves-light" runat="server" Text="Export to Excel" OnClick="btn_exl_Click" />
                             <asp:Button ID="btn_pdf" CssClass="btn btn-primary waves-light" runat="server" Text="Export to PDF" OnClick="btn_pdf_Click" />
+                            <asp:Button ID="btn_exl" CssClass="btn btn-primary waves-light" runat="server" Text="Export to Excel" OnClick="btn_exl_Click" />
 
                         </div>
                     </form>

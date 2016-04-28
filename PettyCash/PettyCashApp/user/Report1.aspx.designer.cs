@@ -31,15 +31,6 @@ namespace PettyCashApp.user {
         protected global::System.Web.UI.WebControls.GridView grd_ogrpt;
         
         /// <summary>
-        /// btn_exl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_exl;
-        
-        /// <summary>
         /// btn_pdf control.
         /// </summary>
         /// <remarks>
@@ -47,5 +38,14 @@ namespace PettyCashApp.user {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_pdf;
+        
+        /// <summary>
+        /// btn_exl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_exl;
     }
 }
