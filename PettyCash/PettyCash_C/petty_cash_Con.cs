@@ -24,6 +24,7 @@ namespace PettyCash_C
         public string type { get; set; }
         public string bill_upload { get; set; }
         public string voucher_upload { get; set; }
+        public double amt_edit { get; set; }
         
         public int login()
         {
@@ -78,7 +79,7 @@ namespace PettyCash_C
 
         public int update_addentry()
         {
-            return data.update_addentry(id, type, sdate, rno, item, amt, bill_upload, voucher_upload, description);
+            return data.update_addentry(id, type, sdate, rno, item, amt,amt_edit,bill_upload, voucher_upload, description);
         }
 
         public DataTable ddl_type()
