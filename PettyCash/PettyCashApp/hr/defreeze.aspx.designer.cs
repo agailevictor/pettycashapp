@@ -10,24 +10,24 @@
 namespace PettyCashApp.hr {
     
     
-    public partial class dash {
+    public partial class defreeze {
         
         /// <summary>
-        /// dash_form control.
+        /// assign_form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm dash_form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm assign_form;
         
         /// <summary>
-        /// grd_latest control.
+        /// grid_users_defreeze control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_latest;
+        protected global::System.Web.UI.WebControls.GridView grid_users_defreeze;
     }
 }

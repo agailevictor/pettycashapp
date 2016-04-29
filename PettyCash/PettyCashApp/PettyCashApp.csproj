@@ -366,6 +366,7 @@
     <Content Include="assets\plugins\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.min.js" />
     <Content Include="hr\Assign.aspx" />
     <Content Include="hr\dash.aspx" />
+    <Content Include="hr\defreeze.aspx" />
     <Content Include="hr\Journal.aspx" />
     <Content Include="hr\Report1.aspx" />
     <Content Include="hr\Report2.aspx" />
@@ -402,6 +403,13 @@
     </Compile>
     <Compile Include="hr\dash.aspx.designer.cs">
       <DependentUpon>dash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="hr\defreeze.aspx.cs">
+      <DependentUpon>defreeze.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hr\defreeze.aspx.designer.cs">
+      <DependentUpon>defreeze.aspx</DependentUpon>
     </Compile>
     <Compile Include="hr\hr.Master.cs">
       <DependentUpon>hr.Master</DependentUpon>

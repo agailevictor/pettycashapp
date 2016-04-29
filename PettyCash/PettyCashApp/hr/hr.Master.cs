@@ -32,8 +32,8 @@ namespace PettyCashApp.hr
                     design1.Attributes["class"] = "active";
                     break;
                 case "Assign.aspx":
-                    design.Attributes["class"] = "has-submenu active";
-                    design2.Attributes["class"] = "active";
+                    settings.Attributes["class"] = "has-submenu active";
+                    settings1.Attributes["class"] = "active";
                     break;
                 case "Report1.aspx":
                     report.Attributes["class"] = "has-submenu active";
@@ -42,6 +42,10 @@ namespace PettyCashApp.hr
                 case "Report2.aspx":
                     report.Attributes["class"] = "has-submenu active";
                     report2.Attributes["class"] = "active";
+                    break;
+                case "defreeze.aspx":
+                    settings.Attributes["class"] = "has-submenu active";
+                    settings2.Attributes["class"] = "active";
                     break;
             }
         }

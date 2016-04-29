@@ -106,11 +106,13 @@ namespace PettyCashApp.user
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_mail();", true);
+                    filllogs();
                 }
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_freeze();", true);
+                filllogs();
             }
         }
 
