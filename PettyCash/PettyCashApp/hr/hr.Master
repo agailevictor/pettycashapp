@@ -124,7 +124,7 @@
                         </li>
 
                         <li id="settings" class="has-submenu" runat="server">
-                            <a href="#"><i class="zmdi zmdi-collection-item"></i><span>Settings </span></a>
+                            <a href="#"><i class="zmdi zmdi-settings"></i><span>Settings </span></a>
                             <ul class="submenu">
                                 <li id="settings1" runat="server"><a href="Assign.aspx">Assign</a></li>
                                 <li id="settings2" runat="server"><a href="defreeze.aspx">Defreeze</a></li>
