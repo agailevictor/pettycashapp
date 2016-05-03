@@ -58,13 +58,31 @@ namespace PettyCashApp.hr {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl design1;
         
         /// <summary>
-        /// design2 control.
+        /// settings control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl design2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl settings;
+        
+        /// <summary>
+        /// settings1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl settings1;
+        
+        /// <summary>
+        /// settings2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl settings2;
         
         /// <summary>
         /// report control.

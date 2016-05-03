@@ -10,7 +10,7 @@
 namespace PettyCashApp.hr {
     
     
-    public partial class Report1 {
+    public partial class defreeze {
         
         /// <summary>
         /// assign_form control.
@@ -22,30 +22,12 @@ namespace PettyCashApp.hr {
         protected global::System.Web.UI.HtmlControls.HtmlForm assign_form;
         
         /// <summary>
-        /// grd_ogrpt control.
+        /// grid_users_defreeze control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grd_ogrpt;
-        
-        /// <summary>
-        /// btn_pdf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_pdf;
-        
-        /// <summary>
-        /// btn_exl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_exl;
+        protected global::System.Web.UI.WebControls.GridView grid_users_defreeze;
     }
 }

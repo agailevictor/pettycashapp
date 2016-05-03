@@ -105,6 +105,16 @@ namespace PettyCash_C
         public DataTable rpt_htry_Click()
         {
             return data.rpt_htry_Click(pmid);
+        }        
+
+        public DataTable grid_defreeze()
+        {
+            return data.grid_defreeze();
+        }
+
+        public int defreeze()
+        {
+            return data.defreeze(pmid);
         }
     }
 }

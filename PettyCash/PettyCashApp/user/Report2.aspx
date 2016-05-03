@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-     <style type="text/css">
+    <style type="text/css">
         .arrange {
             text-align: right;
             padding: 20px;
@@ -14,6 +14,29 @@
             width: 30%;
         }
     </style>
+    <script type="text/javascript">
+        function error_ddl_empty() {
+            swal({
+                title: 'Error!',
+                text: 'Select atleast one Date',
+                type: 'error',
+                allowEscapeKey: false,
+                allowOutsideClick: false
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function error_ddl_empty() {
+            swal({
+                title: 'Error!',
+                text: 'Select atleast one Date',
+                type: 'error',
+                allowEscapeKey: false,
+                allowOutsideClick: false
+            });
+        }
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -40,7 +63,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-8">
-                                <asp:Button ID="rpt_htry" runat="server" Text="Get Report" CssClass="btn btn-primary waves-light" OnClick="rpt_htry_Click" ClientIDMode="Static" />
+                                <asp:Button ID="rpt_htry" runat="server" Text="Get Report" CssClass="btn btn-primary waves-light" OnClick="rpt_htry_Click" ClientIDMode="Static" OnClientClick="rpt_vali()" />
                             </div>
                         </div>
                         <div class="table-responsive">

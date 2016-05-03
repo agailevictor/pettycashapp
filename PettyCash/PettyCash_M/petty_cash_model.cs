@@ -397,5 +397,49 @@ namespace PettyCash_M
                 db.disconnect_pettycash();
             }
         }
+
+        public DataTable grid_defreeze()
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_grid_defreeze";
+                cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
+        public int defreeze(int pmid)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_defreeze";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pmid", pmid);
+                SqlParameter outparam = new SqlParameter();
+                outparam.ParameterName = "@flag";
+                outparam.Direction = ParameterDirection.InputOutput;
+                outparam.DbType = DbType.Int32;
+                outparam.Value = 0;
+                cmd.Parameters.Add(outparam);
+                cmd.Connection = db.connect_pettycash();
+                cmd.ExecuteNonQuery();
+                int res = int.Parse(cmd.Parameters["@flag"].Value.ToString());
+                return res;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
     }
 }
