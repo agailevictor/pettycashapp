@@ -57,7 +57,7 @@
                                     <asp:TemplateField HeaderText="Defreeze">
                                         <ItemTemplate>
                                             <div style="padding-left: 60px;">
-                                            <asp:LinkButton ID="lnk_defreeze" runat="server" CssClass="btn btn-icon  waves-light btn-danger m-b-5 fa fa-remove" OnClick="lnk_defreeze_Click"></asp:LinkButton>
+                                            <asp:LinkButton ID="lnk_defreeze" runat="server" CssClass="zmdi zmdi-lock-open" OnClick="lnk_defreeze_Click"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
