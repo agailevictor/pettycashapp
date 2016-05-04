@@ -16,7 +16,8 @@ namespace PettyCashApp.user
     {
         business_pettycash bus = new business_pettycash();
         ReportDocument rd = new ReportDocument();
-        string url = "http://uoa.hummingsoft.com.my:8065/petty_cash/ target=\"_blank\"";
+        public string url = "http://uoa.hummingsoft.com.my:8065/petty_cash/ target=\"_blank\"";
+        public string toemail;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -29,7 +30,7 @@ namespace PettyCashApp.user
                 DataTable cidno = bus.getidno();
                 Session["current_idno"] = cidno.Rows[0][0].ToString();
             }
-               
+
         }
 
         protected void checklogin()
@@ -90,12 +91,15 @@ namespace PettyCashApp.user
         {
             bus.cidno = int.Parse(Session["current_idno"].ToString());
             int f = bus.freeze();
-            if(f == 1)
+            if (f == 1)
             {
-                
+                // fetch mail details
+
+                fetch_mail_details();
+
                 // generate report and send email the report as attachment
-                
-                bool check = SendWebMail("harishankar@hummingsoft.com.my", "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
+
+                bool check = SendWebMail(toemail, "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
 
                 if (check == true)
                 {
@@ -115,6 +119,26 @@ namespace PettyCashApp.user
                 filllogs();
             }
         }
+
+        public void fetch_mail_details()
+        {
+            toemail = "";
+            bus.role = Session["role"].ToString();
+            DataTable dtemail = bus.fetch_mail_details();
+            if (dtemail.Rows.Count > 0)
+            {
+                for (int i = 0; i < dtemail.Rows.Count; i++)
+                {
+                    toemail = toemail + dtemail.Rows[i]["email"].ToString();
+                    toemail += (i < dtemail.Rows.Count - 1) ? ";" : string.Empty;
+                }
+            }
+            else
+            {
+                //ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "warning();", true);
+            }
+        }
+
 
         private bool SendWebMail(string strTo, string subj, string cont, string cc, string bcc, string strfrom)
         {
@@ -142,10 +166,10 @@ namespace PettyCashApp.user
 
             bool flg = false;
             MailMessage msg = new MailMessage();
-            msg.Body = "<table  border='1' cellpadding='0' cellspacing='0' style='width: 750px; border-color: black;'><tr><td colspan='9'><br>&nbsp &nbspDear Sir / Madam,<br /><br />&nbsp&nbsp&nbsp&nbsp&nbspPFA Monthly report for the Month of <b>" + dre.Rows[0][5].ToString() + dre.Rows[0][6].ToString() + "</b>. The details are as follows.<br /><br /></td></tr><tr style='font-weight: 700;'></tr><tr><td colspan='9'><br/><p></p><p> &nbsp&nbsp&nbspOpening Date:   " + dre.Rows[0][2].ToString() + "</p><p>&nbsp&nbsp&nbspOpening Balance:   " + dre.Rows[0][7].ToString() + "</p><p>&nbsp&nbsp&nbspOpened By:   " + dre.Rows[0][4].ToString() + " </p><p>&nbsp&nbsp&nbspFreezed Date:   " + dre.Rows[0][3].ToString() + " </p><p>&nbsp&nbsp&nbspclick<a href=" + url + "> here </a>to login into the application</p><br/></td></tr><tr></tr><td colspan='9' style='font-weight: bold' align='right'><br /><br />Regards,<br />Team Petty Cash App</td></tr><tr><td align='center'><p style='color:blue;'> This is a system generated response. Please do not respond to this email id.</p></td></tr></table>"; 
+            msg.Body = "<table  border='1' cellpadding='0' cellspacing='0' style='width: 750px; border-color: black;'><tr><td colspan='9'><br>&nbsp &nbspDear Sir / Madam,<br /><br />&nbsp&nbsp&nbsp&nbsp&nbspPFA Monthly report for the Month of <b>" + dre.Rows[0][5].ToString() + " " + dre.Rows[0][6].ToString() + "</b>. The details are as follows.<br /><br /></td></tr><tr style='font-weight: 700;'></tr><tr><td colspan='9'><br/><p></p><p> &nbsp&nbsp&nbspOpening Date:   " + dre.Rows[0][2].ToString() + "</p><p>&nbsp&nbsp&nbspOpening Balance:   " + dre.Rows[0][7].ToString() + "</p><p>&nbsp&nbsp&nbspClosing Balance:   " + dre.Rows[0][15].ToString() + "</p><p>&nbsp&nbsp&nbspOpened By:   " + dre.Rows[0][4].ToString() + " </p><p>&nbsp&nbsp&nbspFreezed Date:   " + dre.Rows[0][3].ToString() + " </p><p>&nbsp&nbsp&nbspclick<a href=" + url + "> here </a>to login into the application</p><br/></td></tr><tr></tr><td colspan='9' style='font-weight: bold' align='right'><br /><br />Regards,<br />Team Petty Cash App</td></tr><tr><td align='center'><p style='color:blue;'> This is a system generated response. Please do not respond to this email id.</p></td></tr></table>";
             msg.From = strfrom;
             msg.To = strTo;
-            msg.Subject = subj;
+            msg.Subject = subj + " " + dre.Rows[0][5].ToString() + " " + dre.Rows[0][6].ToString();
             msg.Cc = cc;
             msg.Bcc = bcc;
             //System.Net.Mail.Attachment attach;
@@ -154,8 +178,8 @@ namespace PettyCashApp.user
             msg.BodyFormat = MailFormat.Html;
             try
             {
-                //SmtpMail.SmtpServer = "175.143.44.165";
-                SmtpMail.SmtpServer = "192.168.1.4"; // change the ip address to this when hosting in server
+                SmtpMail.SmtpServer = "175.143.44.165";
+                //SmtpMail.SmtpServer = "192.168.1.4"; // change the ip address to this when hosting in server
                 SmtpMail.Send(msg);
                 flg = true;
             }

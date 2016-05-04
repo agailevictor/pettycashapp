@@ -108,9 +108,11 @@ namespace PettyCashApp.user
                                     string a = HiddenField1.Value;
                                     int counter = int.Parse(a);
                                     string item = item_name1.Text;
+                                    string qty = txtqty.Text;
                                     string price = price1.Text;
                                     string desc = desc1.Text;
                                     string[] split_item = item.Split(',');
+                                    string[] split_qty = qty.Split(',');
                                     string[] split_price = price.Split(',');
                                     string[] split_desc = desc.Split(',');
                                     for (int j = 0; j < counter; j++)
@@ -120,6 +122,7 @@ namespace PettyCashApp.user
                                         bus.sdate = DateTime.Parse(txtdate.Text);
                                         bus.rno = txtrcpt.Text;
                                         bus.item_name = split_item[j];
+                                        bus.qty = int.Parse(split_qty[j]);
                                         bus.item_amount = double.Parse(split_price[j]);
                                         bus.item_description = split_desc[j];
                                         bus.bill_upload = filename_vir_bill;
@@ -182,9 +185,11 @@ namespace PettyCashApp.user
                                     string a = HiddenField1.Value;
                                     int counter = int.Parse(a);
                                     string item = item_name1.Text;
+                                    string qty = txtqty.Text;
                                     string price = price1.Text;
                                     string desc = desc1.Text;
                                     string[] split_item = item.Split(',');
+                                    string[] split_qty = qty.Split(',');
                                     string[] split_price = price.Split(',');
                                     string[] split_desc = desc.Split(',');
                                     for (int j = 0; j < counter; j++)
@@ -194,6 +199,7 @@ namespace PettyCashApp.user
                                         bus.sdate = DateTime.Parse(txtdate.Text);
                                         bus.rno = txtrcpt.Text;
                                         bus.item_name = split_item[j];
+                                        bus.qty = int.Parse(split_qty[j]);
                                         bus.item_amount = double.Parse(split_price[j]);
                                         bus.item_description = split_desc[j];
                                         bus.bill_upload = filename_vir_bill;

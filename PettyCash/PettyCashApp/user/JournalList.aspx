@@ -69,6 +69,7 @@
                                     <asp:BoundField HeaderText="Type" DataField="type_detail" />
                                     <asp:BoundField HeaderText="Receipt No" DataField="r_no" />
                                     <asp:BoundField HeaderText="Item" DataField="item_name" />
+                                    <asp:BoundField DataField="qty" HeaderText="Qty" />
                                     <asp:BoundField HeaderText="Amount" DataField="amount" />
                                     <asp:BoundField HeaderText="Description" DataField="description" />
                                     <asp:BoundField DataField="visible" HeaderText="Condition">

@@ -47,7 +47,11 @@
                 type: 'success',
                 allowEscapeKey: false,
                 allowOutsideClick: false
-            });
+            },
+
+                function () {
+                    window.location = "Assign.aspx";
+                });
         }
     </script>
 
@@ -87,7 +91,7 @@
             <div class="card-box">
                 <div class="row">
                     <form class="form-horizontal" runat="server" id="assign_form">
-                        <div class="form-group">
+                        <div class="form-group" id="assignee_user">
                             <label for="assignee" class="col-sm-4 control-label">Select Assignee*</label>
                             <div class="col-sm-7">
                                 <asp:DropDownList ID="ddl_assign_user" runat="server" CssClass="form-control cust" DataTextField="Name" DataValueField="user_id" ClientIDMode="Static"></asp:DropDownList>

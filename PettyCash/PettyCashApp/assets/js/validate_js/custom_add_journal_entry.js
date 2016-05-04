@@ -38,8 +38,8 @@ var addjinit = function () {
 
         //Validator for Amount starting with 0.
         jQuery.validator.addMethod("alpha", function (value, element) {
-            return this.optional(element) || /^[a-zA-Z0-9-]*$/i.test(value);
-        }, "Accepts Characters, Numerals and Hyphen(-)");
+            return this.optional(element) || /^[a-zA-Z0-9-_\\/|,#;:()\[\]]*$/i.test(value);
+        }, "Accepts Characters, Numerals and Special Characters(- _ | \\ / # , ; : ( ) [ ])");
         form.validate({
             ignore: ':hidden',
             rules: {
@@ -61,6 +61,11 @@ var addjinit = function () {
                 ctl00$ContentPlaceHolder1$item_name1: {
                     required: true,
                     maxlength: 30
+                },
+                ctl00$ContentPlaceHolder1$txtqty: {
+                    required: true,
+                    number: true,
+                    startnonzero: true
                 },
                 ctl00$ContentPlaceHolder1$price1: {
                     required: true,

@@ -74,6 +74,16 @@
         }
     </script>
 
+    <script type="text/javascript">
+        function PostToNewWindow() {
+            originalTarget = document.forms[0].target;
+            document.forms[0].target = '_blank';
+            window.setTimeout("document.forms[0].target=originalTarget;", 300);
+            return true;
+        }
+    </script>
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Page-Title -->
@@ -103,6 +113,10 @@
                         <label for="item_name">Item Name*</label>
                         <asp:TextBox ID="item_name1" placeholder="Enter item" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>
+                    <div id="iqty" class="form-group" runat="server">
+                        <label for="item_name">Quantity*</label>
+                        <asp:TextBox ID="qty" placeholder="Enter Quantity" runat="server" CssClass="form-control"></asp:TextBox>
+                    </div>
                     <div id="price" class="form-group" runat="server">
                         <label for="price">Price*</label>
                         <asp:TextBox ID="price1" runat="server" placeholder="Enter price" CssClass="form-control"></asp:TextBox>
@@ -114,6 +128,18 @@
                     <div id="desc" class="form-group" runat="server">
                         <label for="desc">Description</label>
                         <asp:TextBox ID="desc1" runat="server" CssClass="form-control item_desc" placeholder="Enter Description" TextMode="MultiLine"></asp:TextBox>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="bill_up">Bill - </label>
+                                <asp:LinkButton ID="bill_upld" runat="server" OnClick="bill_upld_Click" OnClientClick="PostToNewWindow()"> View</asp:LinkButton>
+                            </div>                           
+                        </div>
+                        <div class="col-lg-2">
+                            <label for="vhr_up"> Voucher - </label>
+                            <asp:LinkButton ID="vhr_upld" runat="server" OnClick="vhr_upld_Click" OnClientClick="PostToNewWindow()"> View</asp:LinkButton>
+                        </div>
                     </div>
                     
                     <div class="row">

@@ -62,7 +62,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo"><span>PettyCash<span>App</span></span></a>
+                    <a href="dash.aspx" class="logo"><span>PettyCash<span>App</span></span></a>
                 </div>
                 <!-- End Logo container-->
 
@@ -225,6 +225,7 @@
                     $(this).val('');
                 });
                 $cloned.find('.item_name').removeAttr("id").attr("id", "ContentPlaceHolder1_item_name" + ($length + 1));
+                $cloned.find('.quantity').removeAttr("id").attr("id", "ContentPlaceHolder1_txtqty" + ($length + 1));
                 $cloned.find('.item_price').removeAttr("id").attr("id", "ContentPlaceHolder1_item_price" + ($length + 1));
                 $cloned.find('.item_desc').removeAttr("id").attr("id", "ContentPlaceHolder1_item_desc" + ($length + 1));
                 $cloned.find('textarea').val('');
@@ -234,7 +235,7 @@
             });
             $(document).on("click", ".row_remove", function () {
                 $length = $('.cls_deposit').length;
-                if (confirm("Do u wanna Delete?")) {
+                if (confirm("Do you want to Delete?")) {
                     $(this).parent().parent().remove();
                     if ($length == 2) {
                         $('.cls_deposit').addClass('active');
@@ -376,21 +377,21 @@
                     for (var i = 0; i < data.d.length; i++) {
                         if (data.d[i].Type == "current_balance") {
                             $('#cbv').text(data.d[i].Amount);
-                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 2000.00) {
                                 $('#cb').removeClass();
                                 $('#cbi').removeClass();
                                 $('#cb').addClass('badge badge-danger pull-left m-t-20');
                                 $('#cbi').addClass('zmdi zmdi-trending-down');
                                 $('#cbh').text('Insufficiant');
                             }
-                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                            else if (data.d[i].Amount >= 2001.00 && data.d[i].Amount <= 4000.00) {
                                 $('#cb').removeClass();
                                 $('#cbi').removeClass();
                                 $('#cb').addClass('badge badge-warning pull-left m-t-20');
                                 $('#cbi').addClass('zmdi zmdi-trending-flat');
                                 $('#cbh').text('Budget');
                             }
-                            else if (data.d[i].Amount >= 2501.00) {
+                            else if (data.d[i].Amount >= 4001.00) {
                                 $('#cb').removeClass();
                                 $('#cbi').removeClass();
                                 $('#cb').addClass('badge badge-success pull-left m-t-20');
@@ -408,14 +409,14 @@
                         else if (data.d[i].Type == "current_expense") {
                             $('#cev').text(data.d[i].Amount);
                             //$('#ceh').text(data.d[i].Percent);
-                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 2000.00) {
                                 $('#ce').removeClass();
                                 $('#cei').removeClass();
                                 $('#ce').addClass('badge badge-success pull-left m-t-20');
                                 $('#cei').addClass('zmdi zmdi-trending-down');
                                 $('#ceh').text('Low');
                             }
-                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                            else if (data.d[i].Amount >= 2001.00 && data.d[i].Amount <= 4000.00) {
                                 $('#ce').removeClass();
                                 $('#cei').removeClass();
                                 $('#ce').addClass('badge badge-warning pull-left m-t-20');
@@ -434,14 +435,14 @@
                         else if (data.d[i].Type == "prev_expense") {
                             $('#pev').text(data.d[i].Amount);
                             //$('#peh').text(data.d[i].Percent);
-                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 1000.00) {
+                            if (data.d[i].Amount >= 0.00 && data.d[i].Amount <= 2000.00) {
                                 $('#pe').removeClass();
                                 $('#pei').removeClass();
                                 $('#pe').addClass('badge badge-success pull-left m-t-20');
                                 $('#pei').addClass('zmdi zmdi-trending-down');
                                 $('#peh').text('Low');
                             }
-                            else if (data.d[i].Amount >= 1001.00 && data.d[i].Amount <= 2500.00) {
+                            else if (data.d[i].Amount >= 2001.00 && data.d[i].Amount <= 4000.00) {
                                 $('#pe').removeClass();
                                 $('#pei').removeClass();
                                 $('#pe').addClass('badge badge-warning pull-left m-t-20');

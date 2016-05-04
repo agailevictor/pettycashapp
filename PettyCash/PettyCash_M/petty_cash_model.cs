@@ -266,7 +266,7 @@ namespace PettyCash_M
             }
         }
 
-        public int update_addentry(int id,string type,DateTime sdate,string rno,string item,double amt,double amt_edit,string bill_upload, string voucher_upload,string description)
+        public int update_addentry(int id,string type,DateTime sdate,string rno,string item,int qty,double amt,double amt_edit,string bill_upload, string voucher_upload,string description)
         {
             try
             {
@@ -278,6 +278,7 @@ namespace PettyCash_M
                 cmd.Parameters.AddWithValue("@sdate", sdate);
                 cmd.Parameters.AddWithValue("@rno", rno);
                 cmd.Parameters.AddWithValue("@item", item);
+                cmd.Parameters.AddWithValue("@qty", qty);
                 cmd.Parameters.AddWithValue("@amt", amt);
                 cmd.Parameters.AddWithValue("amt_edit", amt_edit);
                 cmd.Parameters.AddWithValue("@bill_upload", bill_upload);

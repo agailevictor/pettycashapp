@@ -147,7 +147,7 @@ namespace PettyCash_M
             }
         }
 
-        public int withdraw(int uid, int pmid, DateTime sdate, string rno, string item_name, double item_amount, string item_description, string bill_upload, string voucher_upload)
+        public int withdraw(int uid, int pmid, DateTime sdate, string rno, string item_name, int qty, double item_amount, string item_description, string bill_upload, string voucher_upload)
         {
             try
             {
@@ -159,6 +159,7 @@ namespace PettyCash_M
                 cmd.Parameters.AddWithValue("@sdate", sdate);
                 cmd.Parameters.AddWithValue("@rno", rno);
                 cmd.Parameters.AddWithValue("@item_name", item_name);
+                cmd.Parameters.AddWithValue("@qty", qty);
                 cmd.Parameters.AddWithValue("@item_amount", item_amount);
                 cmd.Parameters.AddWithValue("@item_description", item_description);
                 cmd.Parameters.AddWithValue("@bill_upload", bill_upload);
@@ -266,6 +267,75 @@ namespace PettyCash_M
             {
                 cmd.Parameters.Clear();
                 cmd.CommandText = "sp_journal_details";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idno", idno);
+                SqlParameter outparam = new SqlParameter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
+        public DataTable fetch_mail_details(string role)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_fetch_mail_details";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@role", role);
+                SqlParameter outparam = new SqlParameter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
+        public DataTable fill_ongoing_excel(int idno)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_journal_details_excel";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idno", idno);
+                SqlParameter outparam = new SqlParameter();
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
+        public DataTable fill_ongoing_excel1(int idno)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_journal_details_excel1";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idno", idno);
                 SqlParameter outparam = new SqlParameter();

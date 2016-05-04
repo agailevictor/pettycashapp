@@ -33,8 +33,8 @@ var vali_edit = function () {
 
         //Validator for Amount starting with 0.
         jQuery.validator.addMethod("alpha", function (value, element) {
-            return this.optional(element) || /^[a-zA-Z0-9-]*$/i.test(value);
-        }, "Accepts Characters, Numerals and Hyphen(-)");      
+            return this.optional(element) || /^[a-zA-Z0-9-_\\/|,#;:()\[\]]*$/i.test(value);
+        }, "Accepts Characters, Numerals and Special Characters(- _ | \\ / # , ; : ( ) [ ])");
        
         //Validator for File Size 
         $.validator.addMethod('filesize', function (value, element, param) {

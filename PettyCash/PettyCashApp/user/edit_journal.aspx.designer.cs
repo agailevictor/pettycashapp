@@ -67,6 +67,24 @@ namespace PettyCashApp.user {
         protected global::System.Web.UI.WebControls.TextBox item_name1;
         
         /// <summary>
+        /// iqty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl iqty;
+        
+        /// <summary>
+        /// qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox qty;
+        
+        /// <summary>
         /// price control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,24 @@ namespace PettyCashApp.user {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox desc1;
+        
+        /// <summary>
+        /// bill_upld control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton bill_upld;
+        
+        /// <summary>
+        /// vhr_upld control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton vhr_upld;
         
         /// <summary>
         /// bill_new control.

@@ -55,7 +55,10 @@ namespace PettyCashApp.user
             }
             else if (checker == "f")
             {
-
+                grd_ogrpt.DataSource = null;
+                grd_ogrpt.DataBind();
+                btn_exl.Visible = false;
+                btn_pdf.Visible = false;
             }
         }
 
@@ -85,18 +88,23 @@ namespace PettyCashApp.user
         protected void export_excel()
         {
             bus.cidno = int.Parse(Session["current_idno"].ToString());
-            DataTable dtexl = bus.fill_ongoing();
+            DataTable dtexl = bus.fill_ongoing_excel();
+            DataTable dtexl1 = bus.fill_ongoing_excel1();
             if (dtexl.Rows.Count > 0)
             {
                 DataGrid grid = new DataGrid();
                 grid.HeaderStyle.Font.Bold = true;
-                grid.DataSource = dtexl;
+                grid.DataSource = dtexl1;
                 grid.DataBind();
                 Response.Clear();
                 Response.AddHeader("content-disposition", "attachment;filename=Ongoing_Report.xls");
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.xls";
-                Response.Write("<b>Ongoing Report as on :" + DateTime.Now.ToString("dd/MM/yyyy") + "</b><br>");
+                Response.Write("<b>Ongoing Report as on : " + DateTime.Now.ToString("dd/MM/yyyy") + "</b><br>");
+                Response.Write("<b>Opening Date : " + dtexl.Rows[0][2].ToString() + "</b><br>");
+                Response.Write("<b>Opening Balance : " + dtexl.Rows[0][7].ToString() + "</b><br>");
+                Response.Write("<b>Opened By : "+ dtexl.Rows[0][4].ToString() +"</b><br>");
+                Response.Write("<b>Freezed Date :</b><br><br>");
                 StringWriter StringWriter = new System.IO.StringWriter();
                 HtmlTextWriter HtmlTextWriter = new HtmlTextWriter(StringWriter);
                 grid.RenderControl(HtmlTextWriter);

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using PettyCash_C;
 using System.Data;
 using System.IO;
+using System.Net;
 
 namespace PettyCashApp.user
 {
@@ -16,12 +17,13 @@ namespace PettyCashApp.user
         string ty;
         int chk = 1;
         double amt_edit;
+        WebClient client = new WebClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 checklogin();
-                txtdate.Attributes.Add("readonly", "readonly");
+                txtdate.Attributes.Add("readonly", "readonly");                
             }
         }
 
@@ -74,10 +76,12 @@ namespace PettyCashApp.user
                 else if (type_lbl.Text == "Withdraw")
                 {
                     item_name1.Text = dt.Rows[0][3].ToString();
+                    qty.Text = dt.Rows[0][6].ToString();
                     price1.Text = dt.Rows[0][4].ToString();
                     desc1.Text = dt.Rows[0][5].ToString();
                 }
             }
+            vhr_vew();
         }
 
         protected void btnadd_editentry_Click(object sender, EventArgs e)
@@ -322,7 +326,7 @@ namespace PettyCashApp.user
             }
             else if (ty == "Withdraw")
             {
-                if (txtdate.Text != "" && txtrcpt.Text != "" && item_name1.Text != "" && price1.Text != "")
+                if (txtdate.Text != "" && txtrcpt.Text != "" && item_name1.Text != "" && price1.Text != "" && qty.Text != "")
                 {
                     if (bill_new.Checked && vhr_new.Checked)
                     {
@@ -351,6 +355,7 @@ namespace PettyCashApp.user
                                     bus.sdate = DateTime.Parse(txtdate.Text);
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
+                                    bus.qty = int.Parse(qty.Text);
                                     bus.amt = double.Parse(price1.Text);
                                     bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
@@ -416,6 +421,7 @@ namespace PettyCashApp.user
                                     bus.sdate = DateTime.Parse(txtdate.Text);
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
+                                    bus.qty = int.Parse(qty.Text);
                                     bus.amt = double.Parse(price1.Text);
                                     bus.amt_edit = amt_edit;
                                     bus.bill_upload = filename_vir_bill;
@@ -480,6 +486,7 @@ namespace PettyCashApp.user
                                     bus.sdate = DateTime.Parse(txtdate.Text);
                                     bus.rno = txtrcpt.Text;
                                     bus.item = item_name1.Text;
+                                    bus.qty = int.Parse(qty.Text);
                                     bus.amt = double.Parse(price1.Text);
                                     bus.amt_edit = amt_edit;
                                     bus.bill_upload = "";
@@ -532,6 +539,7 @@ namespace PettyCashApp.user
                         bus.sdate = DateTime.Parse(txtdate.Text);
                         bus.rno = txtrcpt.Text;
                         bus.item = item_name1.Text;
+                        bus.qty = int.Parse(qty.Text);
                         bus.amt = double.Parse(price1.Text);
                         bus.amt_edit = amt_edit;
                         bus.bill_upload = "";
@@ -563,6 +571,52 @@ namespace PettyCashApp.user
             bill_new.Checked = false;
             vhr_new.Checked = false;
         }
+        
+        protected void bill_upld_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+            GridViewRow row = lnk.NamingContainer as GridViewRow;
+            bus.id = int.Parse(Session["id"].ToString());
+            DataTable dt = bus.bill_path();
+            string bill_half = dt.Rows[0][0].ToString();
+            string bill_path = Server.MapPath(bill_half);
+            Byte[] buffer = client.DownloadData(bill_path);
+            if (buffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", buffer.Length.ToString());
+                Response.BinaryWrite(buffer);
+            }
+        }
 
+        public void vhr_vew()
+        {
+            string vhr_name = Session["vhr_name"].ToString();
+            if(vhr_name == "No")
+            {
+                vhr_upld.Visible = false;
+            }
+            else
+            {
+                vhr_upld.Visible = true;
+            }
+        }
+        protected void vhr_upld_Click(object sender, EventArgs e)
+        {
+            string vhr_name = Session["vhr_name"].ToString();           
+            LinkButton lnk = sender as LinkButton;
+            GridViewRow row = lnk.NamingContainer as GridViewRow;
+            bus.id = int.Parse(Session["id"].ToString());
+            DataTable dt = bus.vhr_path();
+            string vhr_half = dt.Rows[0][0].ToString();
+            string vhr_path = Server.MapPath(vhr_half);
+            Byte[] buffer = client.DownloadData(vhr_path);
+            if (buffer != null)
+            {   
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", buffer.Length.ToString());
+                Response.BinaryWrite(buffer);
+            }                        
+        }
     }
 }

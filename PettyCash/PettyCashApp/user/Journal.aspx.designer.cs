@@ -94,6 +94,15 @@ namespace PettyCashApp.user {
         protected global::System.Web.UI.WebControls.TextBox item_name1;
         
         /// <summary>
+        /// txtqty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtqty;
+        
+        /// <summary>
         /// price1 control.
         /// </summary>
         /// <remarks>

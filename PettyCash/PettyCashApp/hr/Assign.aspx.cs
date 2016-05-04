@@ -83,8 +83,17 @@ namespace PettyCashApp.hr
 
         public void grid_assigned_fill()
         {
-            grid_assigned_user.DataSource = bus.grid_assigned_fill();
-            grid_assigned_user.DataBind();
+            DataTable gau = bus.grid_assigned_fill();
+            if (gau.Rows.Count > 0)
+            {
+                grid_assigned_user.DataSource = gau;
+                grid_assigned_user.DataBind();
+                Button1.Attributes.Add("disabled", "disabled");
+            }
+            else
+            {
+
+            }
         }        
 
         protected void lnk_rmv_assign_Click(object sender, EventArgs e)

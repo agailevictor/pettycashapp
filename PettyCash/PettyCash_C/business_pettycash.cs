@@ -22,6 +22,8 @@ namespace PettyCash_C
         public int pmid { get; set; }
         public string bill_upload { get; set; }
         public string voucher_upload { get; set; }
+        public int qty { get; set; }
+        public string role { get; set; }
         
         public DataTable fetch_details()
         {
@@ -49,7 +51,7 @@ namespace PettyCash_C
         }
         public int withdraw()
         {
-            return data.withdraw(uid, pmid, sdate, rno, item_name, item_amount, item_description, bill_upload, voucher_upload);
+            return data.withdraw(uid, pmid, sdate, rno, item_name,qty, item_amount, item_description, bill_upload, voucher_upload);
         }
 
         public DataTable fetchexpenses()
@@ -73,6 +75,19 @@ namespace PettyCash_C
         public DataTable fill_ongoing()
         {
             return data.fill_ongoing(cidno);
+        }
+
+        public DataTable fetch_mail_details()
+        {
+            return data.fetch_mail_details(role);
+        }
+        public DataTable fill_ongoing_excel()
+        {
+            return data.fill_ongoing_excel(cidno);
+        }
+        public DataTable fill_ongoing_excel1()
+        {
+            return data.fill_ongoing_excel1(cidno);
         }
     }
 }

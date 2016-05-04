@@ -85,6 +85,7 @@ namespace PettyCashApp.user
             Session["id"] = int.Parse(grid_ongoing_details.DataKeys[row.RowIndex].Value.ToString());
             Session["ty"] = row.Cells[2].Text.ToString().Trim();
             Session["amt_edit"] = row.Cells[5].Text.ToString().Trim();
+            Session["vhr_name"]=row.Cells[8].Text.ToString().Trim();
             Response.Redirect("~/user/edit_journal.aspx");
         }
 

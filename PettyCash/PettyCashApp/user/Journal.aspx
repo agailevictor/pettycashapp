@@ -125,13 +125,13 @@
                             <div class="form-group">
                                 <label for="bfp">Bill Upload*</label>
                                 <asp:FileUpload ID="bfp" runat="server" ClientIDMode="Static" />
-                                 <small>Allowed File Type: PDF</small>
+                                <small>Allowed File Type: PDF</small>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-4">
-                            <div class="form-group">                              
+                            <div class="form-group">
                                 <asp:CheckBox ID="fup_new" runat="server" ClientIDMode="Static" />
                                 <label for="fup_new">Click here to upload Voucher</label>
                             </div>
@@ -141,7 +141,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label for="vfp">Voucher Upload*</label>
-                                <asp:FileUpload ID="vfp" runat="server" ClientIDMode="Static"/>
+                                <asp:FileUpload ID="vfp" runat="server" ClientIDMode="Static" />
                                 <small>Allowed File Type: PDF</small>
                             </div>
                         </div>
@@ -157,13 +157,19 @@
                                 </div>
                                 <div class="panel-body area_insert">
                                     <div class="cls_deposit active">
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label for="item_name">Item Name*</label>
                                                 <asp:TextBox ID="item_name1" placeholder="Enter item" runat="server" CssClass="form-control item_name"></asp:TextBox>
                                             </div>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <label for="quantity">Qty*</label>
+                                                <asp:TextBox ID="txtqty" runat="server" CssClass="form-control quantity" placeholder="Enter Quantity"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        <div class="col-lg-2">
                                             <div class="form-group">
                                                 <label for="price">Price*</label>
                                                 <asp:TextBox ID="price1" runat="server" placeholder="Enter price" CssClass="form-control item_price"></asp:TextBox>
@@ -180,8 +186,8 @@
                                                 <i class="zmdi zmdi-delete" style="font-size: 25px;"></i>
                                             </a>
                                         </div>
-                                    </div>
-                                </div>
+                    </div>
+                    </div>
                             </div>
                         </div>
                     </div>
