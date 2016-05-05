@@ -11,7 +11,13 @@ namespace PettyCashApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            clear_session();
+        }
 
+        protected void clear_session()
+        {
+            Session.Clear();
+            Session["is_login"] = "f";
         }
     }
 }

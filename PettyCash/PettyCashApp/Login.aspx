@@ -67,7 +67,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="alert alert-danger" runat="server" id="inval">
-                    Invalid Username or Password.
+                    <asp:Label ID="lbl_inval" runat="server"></asp:Label>
                 </div>
             </div>
             <div class="panel-body">

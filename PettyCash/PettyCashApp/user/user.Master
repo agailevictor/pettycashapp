@@ -525,6 +525,11 @@
             });
         }
     </script>
+    <script>
+        function toggle_modal() {
+            alert('toggle');
+        }
+    </script>
 
 </body>
 </html>

@@ -87,6 +87,7 @@
                                 <asp:BoundField DataField="type_detail" HeaderText="Type" />
                                 <asp:BoundField DataField="r_no" HeaderText="Receipt No" />
                                 <asp:BoundField DataField="item_name" HeaderText="Item" />
+                                <asp:BoundField DataField="qty" HeaderText="Qty" />
                                 <asp:BoundField DataField="amount" HeaderText="Amount" />
                                 <asp:BoundField DataField="Name" HeaderText="Entered By" />
                             </Columns>

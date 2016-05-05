@@ -17,6 +17,7 @@ namespace PettyCashApp.user
     public partial class Report2 : System.Web.UI.Page
     {
         petty_cash_Con bus = new petty_cash_Con();
+        business_pettycash bus2 = new business_pettycash();
         ReportDocument rd = new ReportDocument();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,26 +68,39 @@ namespace PettyCashApp.user
         //Export to Excel
         protected void btn_excel_Click(object sender, EventArgs e)
         {
-            int pmid = int.Parse(Session["pmid_rpt"].ToString());
-            bus.pmid = pmid;
-            DataTable dtexl = bus.rpt_htry_Click();
+            export_excel();            
+        }
+
+        protected void export_excel()
+        {           
+            bus2.cidno = int.Parse(Session["pmid_rpt"].ToString());
+            DataTable dtexl = bus2.fill_ongoing_excel();
+            DataTable dtexl1 = bus2.fill_ongoing_excel1();
             if (dtexl.Rows.Count > 0)
             {
                 DataGrid grid = new DataGrid();
                 grid.HeaderStyle.Font.Bold = true;
-                grid.DataSource = dtexl;
+                grid.DataSource = dtexl1;
                 grid.DataBind();
                 Response.Clear();
-                Response.AddHeader("content-disposition", "attachment;filename=History_Report.xls");
+                Response.AddHeader("content-disposition", "attachment;filename=Ongoing_Report.xls");
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.xls";
-                Response.Write("<b> Report History :" + DateTime.Now.ToString("dd/MM/yyyy") + "</b><br>");
+                Response.Write("<b>Ongoing Report as on : " + DateTime.Now.ToString("dd/MM/yyyy") + "</b><br>");
+                Response.Write("<b>Opening Date : " + dtexl.Rows[0][2].ToString() + "</b><br>");
+                Response.Write("<b>Opening Balance : " + dtexl.Rows[0][7].ToString() + "</b><br>");
+                Response.Write("<b>Opened By : " + dtexl.Rows[0][4].ToString() + "</b><br>");
+                Response.Write("<b>Freezed Date :"+ dtexl.Rows[0][8].ToString() + "</b><br><br>");
                 StringWriter StringWriter = new System.IO.StringWriter();
                 HtmlTextWriter HtmlTextWriter = new HtmlTextWriter(StringWriter);
                 grid.RenderControl(HtmlTextWriter);
                 Response.Write(StringWriter.ToString());
                 Response.End();
                 dtexl.Dispose();
+            }
+            else
+            {
+
             }
         }
 

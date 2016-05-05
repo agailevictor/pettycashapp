@@ -49,8 +49,9 @@
                                     </asp:TemplateField>
                                     <asp:BoundField HeaderText="Entry Date" DataField="odate" />
                                     <asp:BoundField HeaderText="Type" DataField="typ" />
-                                    <asp:BoundField HeaderText="Item" DataField="item_name" />
                                     <asp:BoundField HeaderText="Reciept No:" DataField="r_no" />
+                                    <asp:BoundField HeaderText="Item" DataField="item_name" />
+                                    <asp:BoundField HeaderText="Qty" DataField="qty" />
                                     <asp:BoundField HeaderText="Price" DataField="amount" />
                                     <asp:BoundField HeaderText="Entered By" DataField="opend_by" />
                                 </Columns>

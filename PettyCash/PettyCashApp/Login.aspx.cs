@@ -36,6 +36,7 @@ namespace PettyCashApp
                     if (res == 1)
                     {
                         inval.Visible = false;
+                        lbl_inval.Text = "";
                         setsession();
                     }
                     else
@@ -43,6 +44,7 @@ namespace PettyCashApp
                         txtuname.Text = "";
                         txtpswd.Text = "";
                         inval.Visible = true;
+                        lbl_inval.Text = "Invalid Username or Password.";
                     }
                 }
                 else
@@ -50,6 +52,7 @@ namespace PettyCashApp
                     txtuname.Text = "";
                     txtpswd.Text = "";
                     inval.Visible = true;
+                    lbl_inval.Text = "Invalid Username or Password.";
                 }
             }
             else
@@ -82,6 +85,15 @@ namespace PettyCashApp
                     {
                         Response.Redirect("~/user/dash.aspx");
                     }
+                    else
+                    {
+                        Session.Clear();
+                        Session["is_login"] = "f";
+                        txtuname.Text = "";
+                        txtpswd.Text = "";
+                        inval.Visible = true;
+                        lbl_inval.Text = "Sorry You don't have permission";
+                    }
                 }
                 else if (Session["role"].ToString() == "HR")
                 {
@@ -89,7 +101,7 @@ namespace PettyCashApp
                 }
                 else
                 {
-                    Response.Redirect("unauthorised.aspx");
+                    Response.Redirect("~/hr/dash.aspx");
                 }
             }
         }

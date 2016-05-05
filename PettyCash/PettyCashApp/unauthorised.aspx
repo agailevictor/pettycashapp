@@ -14,6 +14,17 @@
 
     <!-- App title -->
     <title>PettyCashApp</title>
+    <script type="text/javascript">
+        function DisableBack() {
+            window.history.forward();
+        }
+        DisableBack();
+        window.onload = DisableBack;
+        window.onpageshow = function (evt) {
+            if (evt.persisted) DisableBack();
+        }
+        window.onunload = function () { void (0); }
+    </script>
 
     <!-- App CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -32,6 +43,17 @@
         <![endif]-->
 
     <script src="assets/js/modernizr.min.js"></script>
+    <style type="text/css">
+        .ex-page-content.text-center {
+            background-color: rgba(219, 219, 219, 0.86);
+            border-radius: 7px;
+            padding: 20px;
+        }
+
+        .ex-page-content .text-muted {
+            color: #505458 !important;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -45,10 +67,9 @@
                     It's looking like you may have taken a wrong turn. Don't worry... it happens to
                     the best of us. You might want to check your internet connection. Here's a little tip that might
                     help you get back on track.
-               
                 </p>
-                <br>
-                <a class="btn btn-success waves-effect waves-light" href="index-2.html">Return Home</a>
+                <br />
+                <a class="btn btn-success waves-effect waves-light" href="MainPage.aspx">Return Home</a>
 
             </div>
         </div>

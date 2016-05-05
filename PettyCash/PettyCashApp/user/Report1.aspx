@@ -34,7 +34,7 @@
                                     <asp:BoundField HeaderText="Type" DataField="typ" />
                                     <asp:BoundField HeaderText="Receipt No" DataField="r_no" />
                                     <asp:BoundField HeaderText="Item" DataField="item_name" />
-                                    <asp:BoundField HeaderText="Quantity" DataField="qty"/>
+                                    <asp:BoundField HeaderText="Qty" DataField="qty"/>
                                     <asp:BoundField HeaderText="Amount" DataField="amount" />
                                 </Columns>
                                 <PagerStyle CssClass="pagination-ys" />
