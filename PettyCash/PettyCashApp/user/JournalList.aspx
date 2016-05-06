@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-box">
-                    <h4 class="header-title m-t-0 m-b-30">Journal Details Current </h4>
+                    <h4 class="header-title m-t-0 m-b-30">Journal Entry(s) Current </h4>
                     <div class="row">
 
                         <div class="table-responsive">
@@ -77,17 +77,11 @@
                                         <ItemStyle CssClass="hidden"></ItemStyle>
                                     </asp:BoundField>
                                     <asp:TemplateField HeaderText="Bill">
-                                        <EditItemTemplate>
-                                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                        </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnk_bill" runat="server" OnClick="lnk_bill_Click" OnClientClick="PostToNewWindow()">View</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Voucher">
-                                        <EditItemTemplate>
-                                            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                                        </EditItemTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnk_vhr" runat="server" OnClick="lnk_vhr_Click" Visible='<%# Isenable((string)Eval("visible")) %>' OnClientClick="PostToNewWindow()" >View</asp:LinkButton>
                                         </ItemTemplate>

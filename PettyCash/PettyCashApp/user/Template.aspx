@@ -4,15 +4,51 @@
     <script>
         function success_freeze() {
             swal({
-                title: 'Success!',
-                text: 'Journal freezed successfully!',
-                type: 'success',
+                title: "Attention!",
+                text: "Almost there sending the monthly report, do not hit refresh you will be redirected in a short period.",
+                timer: 15000,
+                showConfirmButton: false,
                 allowEscapeKey: false,
                 allowOutsideClick: false
-            },
-                function () {
-                    window.location = "Template.aspx";
-                });
+            }, function () {
+                var twist = '<%= Session["checker"] %>';
+                if (twist == "t") {
+                    swal({
+                        title: 'Success!',
+                        text: 'Journal freezed successfully!',
+                        type: 'success',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false
+                    },
+                     function () {
+                         window.location = "Template.aspx";
+                     });
+                }
+                else if(twist == "f") {
+                    swal({
+                        title: 'Error!',
+                        text: 'Failed to send Mail!',
+                        type: 'error',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false
+                    },
+                    function () {
+                        window.location = "Template.aspx";
+                    });
+                }
+                else if (twist == "n") {
+                    swal({
+                        title: 'Error!',
+                        text: 'Failed to freeze journal!',
+                        type: 'error',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false
+                    });
+                }
+                else {
+                    success_freeze();
+                }
+            });
         }
     </script>
     <script type="text/javascript">
@@ -37,6 +73,7 @@
             });
         }
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form class="form-horizontal" runat="server" id="ongoing_form">
@@ -44,7 +81,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="btn-group pull-right m-t-15">
-                    <asp:Button ID="btnfreeze" runat="server" Text="Freeze" CssClass="btn btn-danger" OnClientClick="modal()" OnClick="btnfreeze_Click" />
+                    <asp:Button ID="btnfreeze" runat="server" Text="Freeze" CssClass="btn btn-danger" OnClick="btnfreeze_Click" />
                     <a href="start_journal.aspx" class="btn btn-custom" id="aTag" runat="server">Add New</a>
                 </div>
                 <h4 class="page-title">Template</h4>
@@ -85,7 +122,7 @@
                         <h4 class="modal-title" id="modal-title">Attention !</h4>
                     </div>
                     <div class="modal-body" id="modal-body">
-                        <h4 id="mbody"> Almost there sending the monthly report, do not hit refresh you will be redirected in a short period.</h4>
+                        <h4 id="mbody">Almost there sending the monthly report, do not hit refresh you will be redirected in a short period.</h4>
                     </div>
                     <div class="modal-footer">
                     </div>

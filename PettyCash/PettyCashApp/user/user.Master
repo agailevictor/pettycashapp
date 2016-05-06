@@ -326,8 +326,7 @@
 
     <!-- Validation for Edit Journal for Withdraw and Deposit-->
     <script type="text/javascript">
-        function edit_vali()
-        {
+        function edit_vali() {
             // alert('here');
             vali_edit.init();
         }
@@ -335,8 +334,7 @@
 
     <!-- Validation for report-->
     <script type="text/javascript">
-        function rpt_vali()
-        {
+        function rpt_vali() {
             vali_rpt.init();
         }
     </script>
@@ -523,11 +521,6 @@
                 keyboard: false,
                 backdrop: 'static'
             });
-        }
-    </script>
-    <script>
-        function toggle_modal() {
-            alert('toggle');
         }
     </script>
 
