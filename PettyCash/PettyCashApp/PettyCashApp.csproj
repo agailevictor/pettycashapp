@@ -385,6 +385,7 @@
     <Content Include="user\Template.aspx" />
     <Content Include="user\WebForm1.aspx" />
     <Content Include="user\edit_journal.aspx" />
+    <Content Include="user\WebForm3.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -569,6 +570,13 @@
     </Compile>
     <Compile Include="user\edit_journal.aspx.designer.cs">
       <DependentUpon>edit_journal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user\WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user\WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

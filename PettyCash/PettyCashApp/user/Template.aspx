@@ -85,7 +85,7 @@
                         <h4 class="modal-title" id="modal-title">Attention !</h4>
                     </div>
                     <div class="modal-body" id="modal-body">
-                        <h4 id="mbody"> Almost there sending the monthly report, do not hit refresh you will be redirected in a short period.</h4>
+                        <h4 id="mbody">Almost there sending the monthly report, do not hit refresh you will be redirected in a short period.</h4>
                     </div>
                     <div class="modal-footer">
                     </div>

@@ -103,6 +103,7 @@ namespace PettyCashApp.user
 
                 if (check == true)
                 {
+
                     Session["audit_start"] = "f";
                     check_audit_start();
                     ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "success_freeze();", true);

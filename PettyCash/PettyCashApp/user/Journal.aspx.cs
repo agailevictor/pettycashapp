@@ -81,7 +81,7 @@ namespace PettyCashApp.user
         {
             if (txtdate.Text != "" && txtrcpt.Text != "" && ddltype.SelectedIndex != 0 && price1.Text != "")
             {
-                if (ddltype.SelectedValue == "1")
+                if (ddltype.SelectedValue == "1") //withdraw
                 {
                     if (fup_new.Checked)
                     {
