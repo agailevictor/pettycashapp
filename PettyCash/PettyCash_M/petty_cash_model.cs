@@ -399,6 +399,26 @@ namespace PettyCash_M
             }
         }
 
+        public DataTable rpt_htry_Click_hr(int pcmid)
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_journal_list_view_hr";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@pcmid", pcmid);
+                DataTable dt = new DataTable();
+                cmd.Connection = db.connect_pettycash();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
+
         public DataTable grid_defreeze()
         {
             try

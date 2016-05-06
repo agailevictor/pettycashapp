@@ -107,14 +107,14 @@ namespace PettyCashApp.user
                                     FileInfo file_bill = new System.IO.FileInfo(bill_upload.PostedFile.FileName);
                                     string fname_bill = file_bill.Name.Remove((file_bill.Name.Length - file_bill.Extension.Length));
                                     fname_bill = fname_bill + "_" + txtrcpt.Text + "_b" + file_bill.Extension; // renaming file uploads
-                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_bill);
-                                    string filename_vir_bill = Path.Combine("~/uploads/", fname_bill);
+                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Bill_uploads/"), fname_bill);
+                                    string filename_vir_bill = Path.Combine("~/Uploads/Bill_uploads/", fname_bill);
 
                                     FileInfo file_vhr = new System.IO.FileInfo(vhr_upload.PostedFile.FileName);
                                     string fname_vhr = file_vhr.Name.Remove((file_vhr.Name.Length - file_vhr.Extension.Length));
                                     fname_vhr = fname_vhr + "_" + txtrcpt.Text + "_v" + file_vhr.Extension; // renaming file uploads
-                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_vhr);
-                                    string filename_vir_vhr = Path.Combine("~/uploads/", fname_vhr);
+                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Voucher_uploads/"), fname_vhr);
+                                    string filename_vir_vhr = Path.Combine("~/Uploads/Voucher_uploads/", fname_vhr);
                                         
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;
@@ -178,8 +178,8 @@ namespace PettyCashApp.user
                                     FileInfo file_bill = new System.IO.FileInfo(bill_upload.PostedFile.FileName);
                                     string fname_bill = file_bill.Name.Remove((file_bill.Name.Length - file_bill.Extension.Length));
                                     fname_bill = fname_bill + "_" + txtrcpt.Text + "_b" + file_bill.Extension; // renaming file uploads
-                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_bill);
-                                    string filename_vir_bill = Path.Combine("~/uploads/", fname_bill);
+                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Bill_uploads/"), fname_bill);
+                                    string filename_vir_bill = Path.Combine("~/Uploads/Bill_uploads/", fname_bill);
 
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;
@@ -242,8 +242,8 @@ namespace PettyCashApp.user
                                     FileInfo file_vhr = new System.IO.FileInfo(vhr_upload.PostedFile.FileName);
                                     string fname_vhr = file_vhr.Name.Remove((file_vhr.Name.Length - file_vhr.Extension.Length));
                                     fname_vhr = fname_vhr + "_" + txtrcpt.Text + "_v" + file_vhr.Extension; // renaming file uploads
-                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_vhr);
-                                    string filename_vir_vhr = Path.Combine("~/uploads/", fname_vhr);
+                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Voucher_uploads/"), fname_vhr);
+                                    string filename_vir_vhr = Path.Combine("~/Uploads/Voucher_uploads/", fname_vhr);
 
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;
@@ -341,14 +341,14 @@ namespace PettyCashApp.user
                                     FileInfo file_bill = new System.IO.FileInfo(bill_upload.PostedFile.FileName);
                                     string fname_bill = file_bill.Name.Remove((file_bill.Name.Length - file_bill.Extension.Length));
                                     fname_bill = fname_bill + "_" + txtrcpt.Text + "_b" + file_bill.Extension; // renaming file uploads
-                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_bill);
-                                    string filename_vir_bill = Path.Combine("~/uploads/", fname_bill);
+                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Bill_uploads/"), fname_bill);
+                                    string filename_vir_bill = Path.Combine("~/Uploads/Bill_uploads/", fname_bill);
 
                                     FileInfo file_vhr = new System.IO.FileInfo(vhr_upload.PostedFile.FileName);
                                     string fname_vhr = file_vhr.Name.Remove((file_vhr.Name.Length - file_vhr.Extension.Length));
                                     fname_vhr = fname_vhr + "_" + txtrcpt.Text + "_v" + file_vhr.Extension; // renaming file uploads
-                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_vhr);
-                                    string filename_vir_vhr = Path.Combine("~/uploads/", fname_vhr);
+                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Voucher_uploads/"), fname_vhr);
+                                    string filename_vir_vhr = Path.Combine("~/Uploads/Voucher_uploads/", fname_vhr);
 
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;
@@ -413,8 +413,8 @@ namespace PettyCashApp.user
                                     FileInfo file_bill = new System.IO.FileInfo(bill_upload.PostedFile.FileName);
                                     string fname_bill = file_bill.Name.Remove((file_bill.Name.Length - file_bill.Extension.Length));
                                     fname_bill = fname_bill + "_" + txtrcpt.Text + "_b" + file_bill.Extension; // renaming file uploads
-                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_bill);
-                                    string filename_vir_bill = Path.Combine("~/uploads/", fname_bill);
+                                    string filename_bill = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Bill_uploads/"), fname_bill);
+                                    string filename_vir_bill = Path.Combine("~/Uploads/Bill_uploads/", fname_bill);
 
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;
@@ -478,8 +478,8 @@ namespace PettyCashApp.user
                                     FileInfo file_vhr = new System.IO.FileInfo(vhr_upload.PostedFile.FileName);
                                     string fname_vhr = file_vhr.Name.Remove((file_vhr.Name.Length - file_vhr.Extension.Length));
                                     fname_vhr = fname_vhr + "_" + txtrcpt.Text + "_v" + file_vhr.Extension; // renaming file uploads
-                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/uploads/"), fname_vhr);
-                                    string filename_vir_vhr = Path.Combine("~/uploads/", fname_vhr);
+                                    string filename_vhr = Path.Combine(HttpContext.Current.Server.MapPath("~/Uploads/Voucher_uploads/"), fname_vhr);
+                                    string filename_vir_vhr = Path.Combine("~/Uploads/Voucher_uploads/", fname_vhr);
 
                                     bus.id = int.Parse(Session["id"].ToString());
                                     bus.type = ty;

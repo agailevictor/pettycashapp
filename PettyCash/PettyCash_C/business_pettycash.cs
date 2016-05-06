@@ -89,5 +89,10 @@ namespace PettyCash_C
         {
             return data.fill_ongoing_excel1(cidno);
         }
+
+        public int check_entry_count()
+        {
+            return data.check_entry_count();
+        }
     }
 }

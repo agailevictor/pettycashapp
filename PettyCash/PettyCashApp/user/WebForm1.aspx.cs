@@ -13,5 +13,11 @@ namespace PettyCashApp.user
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session["checker"] = "";
+            ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "twist();", true);
+        }
     }
 }
