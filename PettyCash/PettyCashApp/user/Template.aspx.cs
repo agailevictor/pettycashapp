@@ -14,6 +14,7 @@ namespace PettyCashApp.user
 {
     public partial class Template : System.Web.UI.Page
     {
+        public int flag = 0;
         business_pettycash bus = new business_pettycash();
         ReportDocument rd = new ReportDocument();
         public string url = "http://uoa.hummingsoft.com.my:8065/petty_cash/ target=\"_blank\"";
@@ -27,6 +28,11 @@ namespace PettyCashApp.user
             }
             else
             {
+                // check is there entry for the journal
+
+                check_entry_count();
+
+                //get the latest idno
                 DataTable cidno = bus.getidno();
                 Session["current_idno"] = cidno.Rows[0][0].ToString();
             }
@@ -63,6 +69,9 @@ namespace PettyCashApp.user
 
                 // fill logs of the month
                 filllogs();
+
+                // check is there entry for the journal
+                check_entry_count();
             }
             else
             {
@@ -89,36 +98,7 @@ namespace PettyCashApp.user
 
         protected void btnfreeze_Click(object sender, EventArgs e)
         {
-            bus.cidno = int.Parse(Session["current_idno"].ToString());
-            int f = bus.freeze();
-            if (f == 1)
-            {
-                // fetch mail details
-
-                fetch_mail_details();
-
-                // generate report and send email the report as attachment
-
-                bool check = SendWebMail(toemail, "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
-
-                if (check == true)
-                {
-
-                    Session["audit_start"] = "f";
-                    check_audit_start();
-                    ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "success_freeze();", true);
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_mail();", true);
-                    filllogs();
-                }
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_freeze();", true);
-                filllogs();
-            }
+            freeze();
         }
 
         public void fetch_mail_details()
@@ -197,6 +177,59 @@ namespace PettyCashApp.user
             filllogs();
         }
 
+        protected void freeze()
+        {
+            Session["checker"] = "";
+            ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "success_freeze();", true);
+            bus.cidno = int.Parse(Session["current_idno"].ToString());
+            int f = bus.freeze();
+            if (f == 1)
+            {
+                // fetch mail details
+
+                fetch_mail_details();
+
+                // generate report and send email the report as attachment
+
+                bool check = SendWebMail(toemail, "Monthly Report Of Petty Cash", "", "", "", "info@hummingsoft.com.my");
+
+                if (check == true)
+                {
+
+                    Session["checker"] = "t";
+                    Session["audit_start"] = "f";
+                    check_audit_start();
+                    //ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "success_freeze();", true);
+                }
+                else
+                {
+                    Session["checker"] = "f";
+                    Session["audit_start"] = "f";
+                    check_audit_start();
+                    // ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_mail();", true);
+                    //filllogs();
+                }
+            }
+            else
+            {
+                Session["checker"] = "n";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "displayalertmessage", "error_freeze();", true);
+                filllogs();
+            }
+        }
+
+        protected void check_entry_count()
+        {
+            int ck = bus.check_entry_count();
+            if (ck==0) // no entry disable the freeze button
+            {
+                btnfreeze.Enabled = false;
+            }
+            else //enable the freeze button
+            {
+                btnfreeze.Enabled = true;
+            }
+        }
 
     }
 }

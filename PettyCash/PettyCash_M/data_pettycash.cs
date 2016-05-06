@@ -352,5 +352,29 @@ namespace PettyCash_M
                 db.disconnect_pettycash();
             }
         }
+
+        public int check_entry_count()
+        {
+            try
+            {
+                cmd.Parameters.Clear();
+                cmd.CommandText = "sp_check_entry_count";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter outparam = new SqlParameter();
+                outparam.ParameterName = "@flag";
+                outparam.Direction = ParameterDirection.InputOutput;
+                outparam.DbType = DbType.Int32;
+                outparam.Value = 0;
+                cmd.Parameters.Add(outparam);
+                cmd.Connection = db.connect_pettycash();
+                cmd.ExecuteNonQuery();
+                int res = int.Parse(cmd.Parameters["@flag"].Value.ToString());
+                return res;
+            }
+            finally
+            {
+                db.disconnect_pettycash();
+            }
+        }
     }
 }

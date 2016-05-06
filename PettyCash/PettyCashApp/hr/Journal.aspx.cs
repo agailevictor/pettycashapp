@@ -6,12 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using PettyCash_C;
 using System.Data;
+using System.Net;
 
 namespace PettyCashApp.hr
 {
     public partial class Journal : System.Web.UI.Page
     {
         petty_cash_Con bus = new petty_cash_Con();
+        WebClient client = new WebClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -50,10 +52,9 @@ namespace PettyCashApp.hr
 
         public void grd_junl()
         {
-            Session["pmid_rpt"] = int.Parse(start_date.SelectedItem.Value);
-            int pmid = int.Parse(Session["pmid_rpt"].ToString());
-            bus.pmid = pmid;
-            DataTable dt = bus.rpt_htry_Click();
+            Session["pmid_rpt"] = int.Parse(start_date.SelectedItem.Value);            
+            bus.pmid = int.Parse(Session["pmid_rpt"].ToString());
+            DataTable dt = bus.rpt_htry_Click_hr();
             if (dt.Rows.Count > 0)
             {
                 junl_grid.DataSource = dt;
@@ -82,6 +83,52 @@ namespace PettyCashApp.hr
         {
             junl_grid.PageIndex = e.NewPageIndex;
             grd_junl();
-        }        
+        }
+
+        protected void lnk_bill_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+            GridViewRow row = lnk.NamingContainer as GridViewRow;
+            bus.id = int.Parse(junl_grid.DataKeys[row.RowIndex].Value.ToString());
+            DataTable dt = bus.bill_path();
+            string bill_half = dt.Rows[0][0].ToString();
+            string bill_path = Server.MapPath(bill_half);
+            Byte[] buffer = client.DownloadData(bill_path);
+            if (buffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", buffer.Length.ToString());
+                Response.BinaryWrite(buffer);
+            }
+        }
+
+        protected void lnk_vhr_Click(object sender, EventArgs e)
+        {
+            LinkButton lnk = sender as LinkButton;
+            GridViewRow row = lnk.NamingContainer as GridViewRow;
+            bus.id = int.Parse(junl_grid.DataKeys[row.RowIndex].Value.ToString());
+            DataTable dt = bus.vhr_path();
+            string vhr_half = dt.Rows[0][0].ToString();
+            string vhr_path = Server.MapPath(vhr_half);
+            Byte[] buffer = client.DownloadData(vhr_path);
+            if (buffer != null)
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", buffer.Length.ToString());
+                Response.BinaryWrite(buffer);
+            }
+        }
+
+        protected Boolean Isenable(string visible)
+        {
+            if (visible == "No")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
