@@ -38,7 +38,7 @@
             window.setTimeout("document.forms[0].target=originalTarget;", 300);
             return true;
         }
-</script>
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -60,7 +60,7 @@
                     <div class="row">
 
                         <div class="table-responsive">
-                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" DataKeyNames="id" AllowPaging="True" OnPageIndexChanging="grid_ongoing_details_PageIndexChanging" PageSize="4">
+                            <asp:GridView ID="grid_ongoing_details" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" DataKeyNames="id" AllowPaging="True" OnPageIndexChanging="grid_ongoing_details_PageIndexChanging" PageSize="4">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -83,7 +83,7 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Voucher">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="lnk_vhr" runat="server" OnClick="lnk_vhr_Click" Visible='<%# Isenable((string)Eval("visible")) %>' OnClientClick="PostToNewWindow()" >View</asp:LinkButton>
+                                            <asp:LinkButton ID="lnk_vhr" runat="server" OnClick="lnk_vhr_Click" Visible='<%# Isenable((string)Eval("visible")) %>' OnClientClick="PostToNewWindow()">View</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Operation">
@@ -98,6 +98,8 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>

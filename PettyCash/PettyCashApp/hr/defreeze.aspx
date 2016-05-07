@@ -30,7 +30,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="row">
+    <div class="row">
         <div class="col-sm-12">
             <div class="btn-group pull-right m-t-15">
                 <div id="clock-1"></div>
@@ -44,8 +44,8 @@
                 <div class="row">
                     <form class="form-horizontal" runat="server" id="assign_form">
                         <div class="table-responsive">
-                            <asp:GridView ID="grid_users_defreeze" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" DataKeyNames="pcmid">
-                               <Columns>
+                            <asp:GridView ID="grid_users_defreeze" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" DataKeyNames="pcmid">
+                                <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                                     </asp:TemplateField>
@@ -57,10 +57,12 @@
                                     <asp:TemplateField HeaderText="Defreeze">
                                         <ItemTemplate>
                                             <div style="padding-left: 20px;">
-                                            <asp:LinkButton ID="lnk_defreeze" runat="server" CssClass="fa fa-unlock" OnClick="lnk_defreeze_Click"></asp:LinkButton>
+                                                <asp:LinkButton ID="lnk_defreeze" runat="server" CssClass="fa fa-unlock" OnClick="lnk_defreeze_Click"></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>

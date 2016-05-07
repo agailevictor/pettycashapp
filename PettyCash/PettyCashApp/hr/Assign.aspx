@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <asp:GridView ID="grid_assigned_user" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" DataKeyNames="user_id">
+                            <asp:GridView ID="grid_assigned_user" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" DataKeyNames="user_id">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -121,6 +121,8 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                             </asp:GridView>
                         </div>
                     </form>

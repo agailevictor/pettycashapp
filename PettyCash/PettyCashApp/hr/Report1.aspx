@@ -23,7 +23,7 @@
                 <div class="row">
                     <form class="form-horizontal" runat="server" id="assign_form">
                         <div class="table-responsive">
-                            <asp:GridView ID="grd_ogrpt" runat="server" CssClass="table table-striped table-bordered dataTable no-footer" ClientIDMode="Static" AutoGenerateColumns="false" AllowPaging="True" OnPageIndexChanging="grd_ogrpt_PageIndexChanging" PageSize="4">
+                            <asp:GridView ID="grd_ogrpt" runat="server" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered dataTable no-footer" ClientIDMode="Static" AutoGenerateColumns="false" AllowPaging="True" OnPageIndexChanging="grd_ogrpt_PageIndexChanging" PageSize="4">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No.">
                                         <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -35,6 +35,8 @@
                                     <asp:BoundField HeaderText="Qty" DataField="qty" />
                                     <asp:BoundField HeaderText="Amount" DataField="amount" />
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>

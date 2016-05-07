@@ -89,7 +89,7 @@ namespace PettyCashApp.hr
             }
             else
             {
-                grd_latest.DataSource = null;
+                grd_latest.DataSource = new DataTable();
                 grd_latest.DataBind();
             }
         }

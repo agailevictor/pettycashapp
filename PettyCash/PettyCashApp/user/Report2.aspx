@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <asp:GridView ID="rpt_grid" runat="server" CssClass="table table-striped table-bordered dataTable no-footer dataTables_paginate paging_simple_numbers" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="rpt_grid_PageIndexChanging">
+                            <asp:GridView ID="rpt_grid" runat="server" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered dataTable no-footer dataTables_paginate paging_simple_numbers" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="rpt_grid_PageIndexChanging">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No">
                                         <ItemTemplate>
@@ -82,6 +82,8 @@
                                     <asp:BoundField HeaderText="Price" DataField="amount" />
                                     <asp:BoundField HeaderText="Entered By" DataField="opend_by" />
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>

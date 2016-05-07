@@ -92,7 +92,8 @@ namespace PettyCashApp.hr
             }
             else
             {
-
+                grid_assigned_user.DataSource = new DataTable();
+                grid_assigned_user.DataBind();
             }
         }        
 

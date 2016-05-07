@@ -78,7 +78,7 @@
                     <h4 class="header-title m-t-0 m-b-30">Latest Entries</h4>
 
                     <div class="table-responsive">
-                        <asp:GridView ID="grd_latest" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="grd_latest_PageIndexChanging" PageSize="4">
+                        <asp:GridView ID="grd_latest" CssClass="table table-striped table-bordered dataTable no-footer" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" AllowPaging="True" OnPageIndexChanging="grd_latest_PageIndexChanging" PageSize="4">
                             <Columns>
                                 <asp:TemplateField HeaderText="No.">
                                     <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -91,6 +91,8 @@
                                 <asp:BoundField DataField="amount" HeaderText="Amount" />
                                 <asp:BoundField DataField="Name" HeaderText="Entered By" />
                             </Columns>
+                            <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                           <EmptyDataRowStyle HorizontalAlign="Center" />
                             <PagerStyle CssClass="pagination-ys" />
                         </asp:GridView>
                     </div>

@@ -2,10 +2,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        .cust{
-
-    width:30%;
-
+        .cust {
+            width: 30%;
         }
     </style>
 
@@ -22,7 +20,7 @@
             window.setTimeout("document.forms[0].target=originalTarget;", 300);
             return true;
         }
-</script>
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -53,7 +51,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <asp:GridView ID="junl_grid" runat="server" CssClass="table table-striped table-bordered dataTable no-footer dataTables_paginate paging_simple_numbers" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="rpt_grid_PageIndexChanging" DataKeyNames="id">
+                            <asp:GridView ID="junl_grid" runat="server" ShowHeaderWhenEmpty="true" CssClass="table table-striped table-bordered dataTable no-footer dataTables_paginate paging_simple_numbers" AutoGenerateColumns="False" AllowPaging="True" PageSize="4" OnPageIndexChanging="rpt_grid_PageIndexChanging" DataKeyNames="id">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No">
                                         <ItemTemplate>
@@ -66,11 +64,11 @@
                                     <asp:BoundField HeaderText="Item" DataField="item_name" />
                                     <asp:BoundField HeaderText="Qty" DataField="qty" />
                                     <asp:BoundField HeaderText="Price" DataField="amount" />
-                                    <asp:BoundField HeaderText="Entered By" DataField="name" /> 
+                                    <asp:BoundField HeaderText="Entered By" DataField="name" />
                                     <asp:BoundField DataField="visible" HeaderText="Condition">
                                         <HeaderStyle CssClass="hidden"></HeaderStyle>
                                         <ItemStyle CssClass="hidden"></ItemStyle>
-                                    </asp:BoundField>                                   
+                                    </asp:BoundField>
                                     <asp:TemplateField HeaderText="Bill">
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lnk_bill" runat="server" OnClick="lnk_bill_Click" OnClientClick="PostToNewWindow()">View</asp:LinkButton>
@@ -82,6 +80,8 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
+                                <EmptyDataTemplate>No records Available !</EmptyDataTemplate>
+                                <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <PagerStyle CssClass="pagination-ys" />
                             </asp:GridView>
                         </div>

@@ -50,7 +50,7 @@ namespace PettyCashApp.hr
             }
             else
             {
-                grid_users_defreeze.DataSource = null;
+                grid_users_defreeze.DataSource = new DataTable();
                 grid_users_defreeze.DataBind();
             }
         }

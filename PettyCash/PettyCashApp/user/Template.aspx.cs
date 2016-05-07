@@ -91,7 +91,7 @@ namespace PettyCashApp.user
             }
             else
             {
-                grid_ongoing_details.DataSource = null;
+                grid_ongoing_details.DataSource = new DataTable();
                 grid_ongoing_details.DataBind();
             }
         }

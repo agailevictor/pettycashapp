@@ -86,6 +86,11 @@ namespace PettyCashApp.user
                 grd_latest.DataSource = dt;
                 grd_latest.DataBind();
             }
+            else
+            {
+                grd_latest.DataSource = new DataTable();
+                grd_latest.DataBind();
+            }
         }
 
         protected void grd_latest_PageIndexChanging(object sender, GridViewPageEventArgs e)
