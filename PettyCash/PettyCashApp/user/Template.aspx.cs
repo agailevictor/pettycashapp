@@ -28,6 +28,10 @@ namespace PettyCashApp.user
             }
             else
             {
+                // check audit start
+
+                check_audit_start();
+
                 // check is there entry for the journal
 
                 check_entry_count();
