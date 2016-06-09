@@ -54,19 +54,30 @@ namespace PettyCashApp.hr
 
         public void fill_ongoing()
         {
-            bus.cidno = int.Parse(Session["current_idno"].ToString());
-            DataTable og = bus.fill_ongoing();
-            if (og.Rows.Count > 0)
-            {
-                grd_ogrpt.DataSource = og;
-                grd_ogrpt.DataBind();
-            }
-            else
+            int val = int.Parse(Session["current_idno"].ToString());
+            if (val == 0)
             {
                 grd_ogrpt.DataSource = new DataTable();
                 grd_ogrpt.DataBind();
                 btn_exl.Visible = false;
                 btn_pdf.Visible = false;
+            }
+            else
+            {
+                bus.cidno = int.Parse(Session["current_idno"].ToString());
+                DataTable og = bus.fill_ongoing();
+                if (og.Rows.Count > 0)
+                {
+                    grd_ogrpt.DataSource = og;
+                    grd_ogrpt.DataBind();
+                }
+                else
+                {
+                    grd_ogrpt.DataSource = new DataTable();
+                    grd_ogrpt.DataBind();
+                    btn_exl.Visible = false;
+                    btn_pdf.Visible = false;
+                }
             }
         }
 
