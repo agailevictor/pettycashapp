@@ -11,7 +11,6 @@ namespace PettyCash_M
     public class db_connect
     {
         SqlConnection con = new SqlConnection();
-        string constring_eleave = ConfigurationManager.ConnectionStrings["eleave"].ToString();
         string constring_pettycash = ConfigurationManager.ConnectionStrings["pettycash"].ToString();
 
         public SqlConnection connect_pettycash()
@@ -33,40 +32,6 @@ namespace PettyCash_M
         }
 
         public SqlConnection disconnect_pettycash()
-        {
-            try
-            {
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            catch (Exception e)
-            {
-
-            }
-            return con;
-        }
-
-        public SqlConnection connect_eleave()
-        {
-            try
-            {
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.ConnectionString = constring_eleave;
-                    con.Open();
-                }
-
-            }
-            catch (Exception e)
-            {
-
-            }
-            return con;
-        }
-
-        public SqlConnection disconnect_eleave()
         {
             try
             {

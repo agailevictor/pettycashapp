@@ -35,8 +35,8 @@
     <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/menu.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
-    <script src="../assets/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
+    <link href="assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css" />
+    <script src="assets/plugins/sweetalert/sweetalert.min.js" type="text/javascript"></script>
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -140,8 +140,10 @@
 
     <script type="text/javascript">
         function unload() {
-            document.getElementById("inval").className = "no-display";
-            document.getElementById("inval").innerHTML = "";
+            if (document.getElementById("inval") && document.getElementById("inval").innerHTML != "") {
+                document.getElementById("inval").className = "no-display";
+                document.getElementById("inval").innerHTML = "";
+            }
         }
     </script>
 </body>
